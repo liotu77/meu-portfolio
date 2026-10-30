@@ -170,7 +170,6 @@
     position: relative;
   }
 
-  /* Barra de Métricas como Cabeçalho da 2ª Dobra */
   .trabalhos-stats-bar {
     display: grid; grid-template-columns: repeat(4, 1fr);
     background: var(--surface);
@@ -193,7 +192,6 @@
   }
   .hstat-label { font-size: 12px; color: var(--text-muted); margin-top: 8px; line-height: 1.4 }
 
-  /* Cabeçalho Principal de Trabalhos em Evidência */
   .trabalhos-header {
     padding: 0 0 48px;
     display: flex; align-items: flex-end; justify-content: space-between; gap: 32px;
@@ -331,9 +329,8 @@
   .sub-tab-content { display: none; animation: fadeIn .2s ease; }
   .sub-tab-content.active { display: block; }
 
-  /* Rodapé de navegação interna após cada galeria */
   .sub-tab-footer {
-    margin-top: 32px; padding-top: 24px;
+    margin-top: 36px; padding-top: 24px;
     border-top: 1px solid var(--line);
     display: flex; align-items: center; justify-content: space-between;
     flex-wrap: wrap; gap: 16px;
@@ -379,12 +376,10 @@
   }
   .pieces-label span { color: var(--lime); }
 
-  /* Grids responsivos */
   .pieces-grid {
     display: grid; gap: 14px;
     grid-template-columns: repeat(3, 1fr);
   }
-  /* Grade compacta para caber 5 cards menores por linha */
   .pieces-grid.col-compact {
     grid-template-columns: repeat(5, 1fr);
     gap: 12px;
@@ -412,7 +407,6 @@
   .piece-thumb.portrait { aspect-ratio: 4/5 }
   .piece-thumb.square   { aspect-ratio: 1/1 }
 
-  /* Miniatura compacta de Imagem e Vídeo */
   .piece-thumb.compact-media {
     aspect-ratio: 4/5;
     cursor: pointer;
@@ -429,7 +423,6 @@
     transform: scale(1.05); opacity: 1;
   }
 
-  /* Overlay de Ação (Zoom ou Play) na Miniatura */
   .media-overlay {
     position: absolute; inset: 0;
     background: linear-gradient(to top, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.15) 50%, rgba(0,0,0,0.3) 100%);
@@ -475,7 +468,6 @@
   }
   .piece-ph-icon svg { width: 20px; height: 20px; opacity: .4; color: var(--lime) }
 
-  /* Corpo mais enxuto para cards compactos */
   .piece-body { padding: 12px 14px; flex: 1; }
   .piece-tag {
     display: inline-block;
@@ -489,6 +481,113 @@
     line-height: 1.35; margin-bottom: 4px;
   }
   .piece-desc { font-size: 11.5px; color: var(--text-muted); line-height: 1.5 }
+
+  /* ─── SUB-SEÇÃO TESTE A/B (BOXES COMPARATIVOS) ──────────────────────── */
+  .ab-section-divider {
+    margin-top: 52px; padding-top: 40px;
+    border-top: 1px solid var(--line-md);
+  }
+  .ab-section-header {
+    display: flex; align-items: flex-end; justify-content: space-between;
+    flex-wrap: wrap; gap: 16px; margin-bottom: 24px;
+  }
+  .ab-title-wrap { display: flex; flex-direction: column; gap: 6px; }
+  .ab-badge {
+    display: inline-flex; align-items: center; gap: 6px; align-self: flex-start;
+    font-size: 10px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--lime); background: var(--lime-dim);
+    border: 1px solid var(--lime-border);
+    padding: 3px 10px; border-radius: 4px;
+  }
+  .ab-title {
+    font-family: var(--font-display);
+    font-size: clamp(26px, 3vw, 36px); font-weight: 800;
+    text-transform: uppercase; color: var(--white); letter-spacing: 0.02em;
+    line-height: 1;
+  }
+  .ab-subtitle {
+    font-size: 13px; color: var(--text-muted); max-width: 520px; line-height: 1.5;
+  }
+
+  .ab-grid {
+    display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px;
+  }
+  .ab-box {
+    background: var(--off);
+    border: 1px solid var(--line-md);
+    border-radius: var(--r);
+    padding: 16px;
+    display: flex; flex-direction: column; gap: 14px;
+    transition: border-color .2s;
+  }
+  .ab-box:hover { border-color: var(--lime-border); }
+  .ab-box.ab-triple { grid-column: span 2; }
+
+  .ab-box-head {
+    display: flex; align-items: center; justify-content: space-between;
+    padding-bottom: 10px; border-bottom: 1px solid var(--line);
+  }
+  .ab-test-name {
+    font-family: var(--font-display);
+    font-size: 18px; font-weight: 700; text-transform: uppercase;
+    color: var(--white); letter-spacing: 0.04em;
+    display: flex; align-items: center; gap: 8px;
+  }
+  .ab-test-name span {
+    font-family: var(--font-body);
+    font-size: 10px; font-weight: 700; color: var(--black);
+    background: var(--lime); padding: 2px 7px; border-radius: 4px;
+  }
+  .ab-test-meta {
+    font-size: 11px; color: var(--text-dim); text-transform: uppercase; letter-spacing: 0.06em;
+  }
+
+  .ab-variants {
+    display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px;
+  }
+  .ab-box.ab-triple .ab-variants {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .ab-var-card {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: var(--r-sm);
+    overflow: hidden;
+    cursor: pointer;
+    transition: transform .2s, border-color .2s;
+    display: flex; flex-direction: column;
+  }
+  .ab-var-card:hover {
+    border-color: var(--lime); transform: translateY(-2px);
+  }
+  .ab-var-thumb {
+    position: relative; aspect-ratio: 4/5;
+    background: #080808; overflow: hidden;
+  }
+  .ab-var-thumb img {
+    width: 100%; height: 100%; object-fit: cover;
+    transition: transform .3s ease;
+  }
+  .ab-var-card:hover .ab-var-thumb img { transform: scale(1.04); }
+  .ab-var-pill {
+    position: absolute; top: 8px; left: 8px;
+    background: rgba(8,8,8,0.88); border: 1px solid var(--lime-border);
+    color: var(--lime); font-size: 10px; font-weight: 700;
+    padding: 3px 8px; border-radius: 4px; letter-spacing: 0.06em;
+    text-transform: uppercase; z-index: 5;
+  }
+  .ab-var-card:nth-child(2) .ab-var-pill {
+    color: var(--white); border-color: rgba(255,255,255,0.3);
+  }
+  .ab-var-card:nth-child(3) .ab-var-pill {
+    color: #38bdf8; border-color: rgba(56,189,248,0.4);
+  }
+  .ab-var-foot {
+    padding: 8px 10px;
+    display: flex; align-items: center; justify-content: space-between;
+    font-size: 11px; color: var(--text-muted);
+    border-top: 1px solid var(--line);
+  }
 
   /* ─── COMPONENTE CARROSSEL INTERATIVO COMPACTO ──────────────────────── */
   .carousel-grid-compact {
@@ -734,6 +833,8 @@
     #sobre { grid-template-columns: 260px 1fr; gap: 48px }
     #contact { grid-template-columns: 1fr; gap: 48px; }
     .pieces-grid.col-compact { grid-template-columns: repeat(3, 1fr); }
+    .ab-grid { grid-template-columns: 1fr; }
+    .ab-box.ab-triple { grid-column: span 1; }
   }
   @media (max-width: 860px) {
     nav { padding: 0 20px }
@@ -759,6 +860,7 @@
     .hero h1 { font-size: 46px; }
     .trabalhos-stats-bar { grid-template-columns: 1fr 1fr; }
     .pieces-grid, .pieces-grid.col-compact, .pieces-grid.col-2 { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+    .ab-box.ab-triple .ab-variants { grid-template-columns: 1fr; }
     .acc-name { font-size: 26px }
   }
   </style>
@@ -792,7 +894,7 @@
   </a>
 </nav>
 
-<!-- HERO (1ª DOBRA FOCADA NO TÍTULO E SUBTÍTULO) -->
+<!-- HERO -->
 <section class="hero">
   <div class="hero-accent"></div>
   <div class="hero-eyebrow">Copywriter Sênior · CRM & Lifecycle Marketing · São Paulo</div>
@@ -816,10 +918,9 @@
   </div>
 </section>
 
-<!-- TRABALHOS (2ª DOBRA COM FAIXA DE MÉTRICAS E DESTAQUE VISUAL) -->
+<!-- TRABALHOS -->
 <section id="trabalhos">
 
-  <!-- Números abrindo a seção de Trabalhos -->
   <div class="trabalhos-stats-bar">
     <div class="hstat">
       <div class="hstat-num">R$9M</div>
@@ -855,20 +956,20 @@
         <div class="acc-num">01</div>
         <div class="acc-center">
           <div class="acc-name">Meta Ads</div>
-          <div class="acc-sub">Anúncios de imagem única, vídeo e carrossel para Facebook e Instagram</div>
+          <div class="acc-sub">Anúncios de imagem única, testes A/B, vídeo e carrossel para Facebook e Instagram</div>
         </div>
         <div class="acc-indicator">+</div>
       </button>
       <div class="acc-panel" id="meta-panel-top">
-        <p class="panel-desc">Copies e roteiros para Facebook e Instagram Ads combinando gatilhos de resposta direta com a linguagem nativa de cada formato — hooks de 3 segundos, criativos de prova social e sequências de funil do topo ao fechamento.</p>
+        <p class="panel-desc">Copies e roteiros para Facebook e Instagram Ads combinando gatilhos de resposta direta com a linguagem nativa de cada formato — hooks de 3 segundos, experimentos de Teste A/B, criativos de prova social e sequências de funil do topo ao fechamento.</p>
         
-        <!-- BARRA DE SELEÇÃO DE FORMATO EM EVIDÊNCIA -->
+        <!-- BARRA DE SELEÇÃO DE FORMATO -->
         <div class="format-switcher-bar">
           <div class="format-switcher-left">
             <span class="format-label">Escolha o formato:</span>
             <div class="sub-tabs">
               <button class="sub-tab-btn active" id="btn-tab-imagens" onclick="switchMetaTab('imagens')">
-                01. Imagem Única <span class="tab-count">11</span>
+                01. Imagem Única + Testes A/B <span class="tab-count">30 + 8 Testes</span>
               </button>
               <button class="sub-tab-btn" id="btn-tab-videos" onclick="switchMetaTab('videos')">
                 02. Anúncios em Vídeo <span class="tab-count">14</span>
@@ -883,19 +984,94 @@
           </button>
         </div>
 
-        <!-- ABA 1: IMAGEM ÚNICA (11 Peças Compactas) -->
+        <!-- ABA 1: IMAGEM ÚNICA (30 Peças na Ordem de Prioridade + Sub-seção Teste A/B) -->
         <div id="meta-tab-imagens" class="sub-tab-content active">
-          <div class="pieces-label"><span>●</span> Miniaturas compactas — Clique em qualquer imagem para ampliar no tamanho original</div>
+          <div class="pieces-label"><span>●</span> Criativos de Imagem Única (30) — Clique em qualquer miniatura para ampliar no tamanho original</div>
+          
           <div class="pieces-grid col-compact">
             
+            <!-- PRIORIDADE (6 primeiras: 12, 15, 16, 18, 26, 30) -->
+            <div class="piece" onclick="openImageModal(this.querySelector('img').src)">
+              <div class="piece-thumb compact-media">
+                <img data-base="img/ad-img-12" alt="Anúncio Imagem 12">
+                <span class="zoom-badge">🔍 Ampliar</span>
+              </div>
+              <div class="piece-body">
+                <span class="piece-tag">Destaque · 01</span>
+                <div class="piece-title">Criativo Resposta Direta</div>
+                <div class="piece-desc">Gancho de alta conversão e proposta clara.</div>
+              </div>
+            </div>
+
+            <div class="piece" onclick="openImageModal(this.querySelector('img').src)">
+              <div class="piece-thumb compact-media">
+                <img data-base="img/ad-img-15" alt="Anúncio Imagem 15">
+                <span class="zoom-badge">🔍 Ampliar</span>
+              </div>
+              <div class="piece-body">
+                <span class="piece-tag">Destaque · 02</span>
+                <div class="piece-title">Criativo Resposta Direta</div>
+                <div class="piece-desc">Headline orientada a resultado e ação imediata.</div>
+              </div>
+            </div>
+
+            <div class="piece" onclick="openImageModal(this.querySelector('img').src)">
+              <div class="piece-thumb compact-media">
+                <img data-base="img/ad-img-16" alt="Anúncio Imagem 16">
+                <span class="zoom-badge">🔍 Ampliar</span>
+              </div>
+              <div class="piece-body">
+                <span class="piece-tag">Destaque · 03</span>
+                <div class="piece-title">Criativo Resposta Direta</div>
+                <div class="piece-desc">Qualificação de perfil logo na primeira leitura.</div>
+              </div>
+            </div>
+
+            <div class="piece" onclick="openImageModal(this.querySelector('img').src)">
+              <div class="piece-thumb compact-media">
+                <img data-base="img/ad-img-18" alt="Anúncio Imagem 18">
+                <span class="zoom-badge">🔍 Ampliar</span>
+              </div>
+              <div class="piece-body">
+                <span class="piece-tag">Destaque · 04</span>
+                <div class="piece-title">Criativo Resposta Direta</div>
+                <div class="piece-desc">Copy estruturada para parada rápida no feed.</div>
+              </div>
+            </div>
+
+            <div class="piece" onclick="openImageModal(this.querySelector('img').src)">
+              <div class="piece-thumb compact-media">
+                <img data-base="img/ad-img-26" alt="Anúncio Imagem 26">
+                <span class="zoom-badge">🔍 Ampliar</span>
+              </div>
+              <div class="piece-body">
+                <span class="piece-tag">Destaque · 05</span>
+                <div class="piece-title">Criativo Resposta Direta</div>
+                <div class="piece-desc">Ataque direto à dor central da audiência.</div>
+              </div>
+            </div>
+
+            <div class="piece" onclick="openImageModal(this.querySelector('img').src)">
+              <div class="piece-thumb compact-media">
+                <img data-base="img/ad-img-30" alt="Anúncio Imagem 30">
+                <span class="zoom-badge">🔍 Ampliar</span>
+              </div>
+              <div class="piece-body">
+                <span class="piece-tag">Destaque · 06</span>
+                <div class="piece-title">Criativo Resposta Direta</div>
+                <div class="piece-desc">Argumentação de valor e chamada para clique.</div>
+              </div>
+            </div>
+
+            <!-- ARQUIVOS QUE JÁ ESTAVAM NO SITE (1 a 11) -->
             <div class="piece" onclick="openImageModal(this.querySelector('img').src)">
               <div class="piece-thumb compact-media">
                 <img data-base="img/ad-img-1" alt="Anúncio Imagem 1">
                 <span class="zoom-badge">🔍 Ampliar</span>
               </div>
               <div class="piece-body">
-                <span class="piece-tag">Imagem · 01</span>
-                <div class="piece-title">Criativo Resposta Direta I</div>
+                <span class="piece-tag">Imagem · 07</span>
+                <div class="piece-title">Criativo Resposta Direta</div>
                 <div class="piece-desc">Headline de impacto e proposta de valor clara.</div>
               </div>
             </div>
@@ -906,8 +1082,8 @@
                 <span class="zoom-badge">🔍 Ampliar</span>
               </div>
               <div class="piece-body">
-                <span class="piece-tag">Imagem · 02</span>
-                <div class="piece-title">Criativo Resposta Direta II</div>
+                <span class="piece-tag">Imagem · 08</span>
+                <div class="piece-title">Criativo Resposta Direta</div>
                 <div class="piece-desc">Foco na dor imediata com chamada para ação.</div>
               </div>
             </div>
@@ -918,8 +1094,8 @@
                 <span class="zoom-badge">🔍 Ampliar</span>
               </div>
               <div class="piece-body">
-                <span class="piece-tag">Imagem · 03</span>
-                <div class="piece-title">Criativo Resposta Direta III</div>
+                <span class="piece-tag">Imagem · 09</span>
+                <div class="piece-title">Criativo Resposta Direta</div>
                 <div class="piece-desc">Copy sintética para leitura rápida no feed.</div>
               </div>
             </div>
@@ -930,8 +1106,8 @@
                 <span class="zoom-badge">🔍 Ampliar</span>
               </div>
               <div class="piece-body">
-                <span class="piece-tag">Imagem · 04</span>
-                <div class="piece-title">Criativo Resposta Direta IV</div>
+                <span class="piece-tag">Imagem · 10</span>
+                <div class="piece-title">Criativo Resposta Direta</div>
                 <div class="piece-desc">Abordagem orientada a benefício tangível.</div>
               </div>
             </div>
@@ -942,8 +1118,8 @@
                 <span class="zoom-badge">🔍 Ampliar</span>
               </div>
               <div class="piece-body">
-                <span class="piece-tag">Imagem · 05</span>
-                <div class="piece-title">Criativo Resposta Direta V</div>
+                <span class="piece-tag">Imagem · 11</span>
+                <div class="piece-title">Criativo Resposta Direta</div>
                 <div class="piece-desc">Contraste para destacar diferencial da oferta.</div>
               </div>
             </div>
@@ -954,8 +1130,8 @@
                 <span class="zoom-badge">🔍 Ampliar</span>
               </div>
               <div class="piece-body">
-                <span class="piece-tag">Imagem · 06</span>
-                <div class="piece-title">Criativo Resposta Direta VI</div>
+                <span class="piece-tag">Imagem · 12</span>
+                <div class="piece-title">Criativo Resposta Direta</div>
                 <div class="piece-desc">Meio de funil para destravar objeções.</div>
               </div>
             </div>
@@ -966,8 +1142,8 @@
                 <span class="zoom-badge">🔍 Ampliar</span>
               </div>
               <div class="piece-body">
-                <span class="piece-tag">Imagem · 07</span>
-                <div class="piece-title">Criativo Resposta Direta VII</div>
+                <span class="piece-tag">Imagem · 13</span>
+                <div class="piece-title">Criativo Resposta Direta</div>
                 <div class="piece-desc">Hierarquia estruturada para leitura diagonal.</div>
               </div>
             </div>
@@ -978,8 +1154,8 @@
                 <span class="zoom-badge">🔍 Ampliar</span>
               </div>
               <div class="piece-body">
-                <span class="piece-tag">Imagem · 08</span>
-                <div class="piece-title">Criativo Resposta Direta VIII</div>
+                <span class="piece-tag">Imagem · 14</span>
+                <div class="piece-title">Criativo Resposta Direta</div>
                 <div class="piece-desc">Gatilho de especificidade e autoridade.</div>
               </div>
             </div>
@@ -990,8 +1166,8 @@
                 <span class="zoom-badge">🔍 Ampliar</span>
               </div>
               <div class="piece-body">
-                <span class="piece-tag">Imagem · 09</span>
-                <div class="piece-title">Criativo Resposta Direta IX</div>
+                <span class="piece-tag">Imagem · 15</span>
+                <div class="piece-title">Criativo Resposta Direta</div>
                 <div class="piece-desc">Peça focada em remarketing e conversão.</div>
               </div>
             </div>
@@ -1002,8 +1178,8 @@
                 <span class="zoom-badge">🔍 Ampliar</span>
               </div>
               <div class="piece-body">
-                <span class="piece-tag">Imagem · 10</span>
-                <div class="piece-title">Criativo Resposta Direta X</div>
+                <span class="piece-tag">Imagem · 16</span>
+                <div class="piece-title">Criativo Resposta Direta</div>
                 <div class="piece-desc">Argumento conectado à transformação central.</div>
               </div>
             </div>
@@ -1014,203 +1190,587 @@
                 <span class="zoom-badge">🔍 Ampliar</span>
               </div>
               <div class="piece-body">
-                <span class="piece-tag">Imagem · 11</span>
-                <div class="piece-title">Criativo Resposta Direta XI</div>
+                <span class="piece-tag">Imagem · 17</span>
+                <div class="piece-title">Criativo Resposta Direta</div>
                 <div class="piece-desc">Chamada de fechamento com prova social.</div>
+              </div>
+            </div>
+
+            <!-- RESTANTE DOS NOVOS ARQUIVOS EM SEQUÊNCIA (13, 14, 17, 19..25, 27..29) -->
+            <div class="piece" onclick="openImageModal(this.querySelector('img').src)">
+              <div class="piece-thumb compact-media">
+                <img data-base="img/ad-img-13" alt="Anúncio Imagem 13">
+                <span class="zoom-badge">🔍 Ampliar</span>
+              </div>
+              <div class="piece-body">
+                <span class="piece-tag">Imagem · 18</span>
+                <div class="piece-title">Criativo Resposta Direta</div>
+                <div class="piece-desc">Variação de ângulo para captação no feed.</div>
+              </div>
+            </div>
+
+            <div class="piece" onclick="openImageModal(this.querySelector('img').src)">
+              <div class="piece-thumb compact-media">
+                <img data-base="img/ad-img-14" alt="Anúncio Imagem 14">
+                <span class="zoom-badge">🔍 Ampliar</span>
+              </div>
+              <div class="piece-body">
+                <span class="piece-tag">Imagem · 19</span>
+                <div class="piece-title">Criativo Resposta Direta</div>
+                <div class="piece-desc">Comunicação direta focada em decisores.</div>
+              </div>
+            </div>
+
+            <div class="piece" onclick="openImageModal(this.querySelector('img').src)">
+              <div class="piece-thumb compact-media">
+                <img data-base="img/ad-img-17" alt="Anúncio Imagem 17">
+                <span class="zoom-badge">🔍 Ampliar</span>
+              </div>
+              <div class="piece-body">
+                <span class="piece-tag">Imagem · 20</span>
+                <div class="piece-title">Criativo Resposta Direta</div>
+                <div class="piece-desc">Copy enxuta com contraste de benefício.</div>
+              </div>
+            </div>
+
+            <div class="piece" onclick="openImageModal(this.querySelector('img').src)">
+              <div class="piece-thumb compact-media">
+                <img data-base="img/ad-img-19" alt="Anúncio Imagem 19">
+                <span class="zoom-badge">🔍 Ampliar</span>
+              </div>
+              <div class="piece-body">
+                <span class="piece-tag">Imagem · 21</span>
+                <div class="piece-title">Criativo Resposta Direta</div>
+                <div class="piece-desc">Gatilho de curiosidade e qualificação de clique.</div>
+              </div>
+            </div>
+
+            <div class="piece" onclick="openImageModal(this.querySelector('img').src)">
+              <div class="piece-thumb compact-media">
+                <img data-base="img/ad-img-20" alt="Anúncio Imagem 20">
+                <span class="zoom-badge">🔍 Ampliar</span>
+              </div>
+              <div class="piece-body">
+                <span class="piece-tag">Imagem · 22</span>
+                <div class="piece-title">Criativo Resposta Direta</div>
+                <div class="piece-desc">Posicionamento de oferta para público morno.</div>
+              </div>
+            </div>
+
+            <div class="piece" onclick="openImageModal(this.querySelector('img').src)">
+              <div class="piece-thumb compact-media">
+                <img data-base="img/ad-img-21" alt="Anúncio Imagem 21">
+                <span class="zoom-badge">🔍 Ampliar</span>
+              </div>
+              <div class="piece-body">
+                <span class="piece-tag">Imagem · 23</span>
+                <div class="piece-title">Criativo Resposta Direta</div>
+                <div class="piece-desc">Argumento racional com CTA em evidência.</div>
+              </div>
+            </div>
+
+            <div class="piece" onclick="openImageModal(this.querySelector('img').src)">
+              <div class="piece-thumb compact-media">
+                <img data-base="img/ad-img-22" alt="Anúncio Imagem 22">
+                <span class="zoom-badge">🔍 Ampliar</span>
+              </div>
+              <div class="piece-body">
+                <span class="piece-tag">Imagem · 24</span>
+                <div class="piece-title">Criativo Resposta Direta</div>
+                <div class="piece-desc">Estrutura PAS sintetizada em card único.</div>
+              </div>
+            </div>
+
+            <div class="piece" onclick="openImageModal(this.querySelector('img').src)">
+              <div class="piece-thumb compact-media">
+                <img data-base="img/ad-img-23" alt="Anúncio Imagem 23">
+                <span class="zoom-badge">🔍 Ampliar</span>
+              </div>
+              <div class="piece-body">
+                <span class="piece-tag">Imagem · 25</span>
+                <div class="piece-title">Criativo Resposta Direta</div>
+                <div class="piece-desc">Criativo de topo de funil para aquisição.</div>
+              </div>
+            </div>
+
+            <div class="piece" onclick="openImageModal(this.querySelector('img').src)">
+              <div class="piece-thumb compact-media">
+                <img data-base="img/ad-img-24" alt="Anúncio Imagem 24">
+                <span class="zoom-badge">🔍 Ampliar</span>
+              </div>
+              <div class="piece-body">
+                <span class="piece-tag">Imagem · 26</span>
+                <div class="piece-title">Criativo Resposta Direta</div>
+                <div class="piece-desc">Foco em prova e autoridade de mercado.</div>
+              </div>
+            </div>
+
+            <div class="piece" onclick="openImageModal(this.querySelector('img').src)">
+              <div class="piece-thumb compact-media">
+                <img data-base="img/ad-img-25" alt="Anúncio Imagem 25">
+                <span class="zoom-badge">🔍 Ampliar</span>
+              </div>
+              <div class="piece-body">
+                <span class="piece-tag">Imagem · 27</span>
+                <div class="piece-title">Criativo Resposta Direta</div>
+                <div class="piece-desc">Quebra de objeção e redução de atrito.</div>
+              </div>
+            </div>
+
+            <div class="piece" onclick="openImageModal(this.querySelector('img').src)">
+              <div class="piece-thumb compact-media">
+                <img data-base="img/ad-img-27" alt="Anúncio Imagem 27">
+                <span class="zoom-badge">🔍 Ampliar</span>
+              </div>
+              <div class="piece-body">
+                <span class="piece-tag">Imagem · 28</span>
+                <div class="piece-title">Criativo Resposta Direta</div>
+                <div class="piece-desc">Anúncio de retargeting focado em conversão.</div>
+              </div>
+            </div>
+
+            <div class="piece" onclick="openImageModal(this.querySelector('img').src)">
+              <div class="piece-thumb compact-media">
+                <img data-base="img/ad-img-28" alt="Anúncio Imagem 28">
+                <span class="zoom-badge">🔍 Ampliar</span>
+              </div>
+              <div class="piece-body">
+                <span class="piece-tag">Imagem · 29</span>
+                <div class="piece-title">Criativo Resposta Direta</div>
+                <div class="piece-desc">Gatilho de urgência e benefício imediato.</div>
+              </div>
+            </div>
+
+            <div class="piece" onclick="openImageModal(this.querySelector('img').src)">
+              <div class="piece-thumb compact-media">
+                <img data-base="img/ad-img-29" alt="Anúncio Imagem 29">
+                <span class="zoom-badge">🔍 Ampliar</span>
+              </div>
+              <div class="piece-body">
+                <span class="piece-tag">Imagem · 30</span>
+                <div class="piece-title">Criativo Resposta Direta</div>
+                <div class="piece-desc">Fechamento de funil com CTA direto.</div>
               </div>
             </div>
 
           </div>
 
+          <!-- SUB-SEÇÃO: LABORATÓRIO DE TESTES A/B -->
+          <div class="ab-section-divider">
+            <div class="ab-section-header">
+              <div class="ab-title-wrap">
+                <span class="ab-badge">⚡ Experimentação & Otimização de Conversão</span>
+                <div class="ab-title">Testes A/B — Comparativo de Variações</div>
+              </div>
+              <p class="ab-subtitle">Pares de anúncios agrupados lado a lado para validação de hipóteses de copy (headlines, ganchos visuais e CTAs). Clique em qualquer variação para ampliar.</p>
+            </div>
+
+            <div class="ab-grid">
+              
+              <!-- TESTE A/B 01 -->
+              <div class="ab-box">
+                <div class="ab-box-head">
+                  <div class="ab-test-name">Experimento #01 <span>A vs B</span></div>
+                  <div class="ab-test-meta">2 Variações</div>
+                </div>
+                <div class="ab-variants">
+                  <div class="ab-var-card" onclick="openImageModal(this.querySelector('img').src)">
+                    <div class="ab-var-thumb">
+                      <span class="ab-var-pill">Versão A</span>
+                      <img data-base="img/ad-teste-1A" alt="Teste 1A">
+                    </div>
+                    <div class="ab-var-foot"><span>Controle A</span><span>🔍 Ampliar</span></div>
+                  </div>
+                  <div class="ab-var-card" onclick="openImageModal(this.querySelector('img').src)">
+                    <div class="ab-var-thumb">
+                      <span class="ab-var-pill">Versão B</span>
+                      <img data-base="img/ad-teste-1B" alt="Teste 1B">
+                    </div>
+                    <div class="ab-var-foot"><span>Variação B</span><span>🔍 Ampliar</span></div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- TESTE A/B 02 -->
+              <div class="ab-box">
+                <div class="ab-box-head">
+                  <div class="ab-test-name">Experimento #02 <span>A vs B</span></div>
+                  <div class="ab-test-meta">2 Variações</div>
+                </div>
+                <div class="ab-variants">
+                  <div class="ab-var-card" onclick="openImageModal(this.querySelector('img').src)">
+                    <div class="ab-var-thumb">
+                      <span class="ab-var-pill">Versão A</span>
+                      <img data-base="img/ad-teste-2A" alt="Teste 2A">
+                    </div>
+                    <div class="ab-var-foot"><span>Controle A</span><span>🔍 Ampliar</span></div>
+                  </div>
+                  <div class="ab-var-card" onclick="openImageModal(this.querySelector('img').src)">
+                    <div class="ab-var-thumb">
+                      <span class="ab-var-pill">Versão B</span>
+                      <img data-base="img/ad-teste-2B" alt="Teste 2B">
+                    </div>
+                    <div class="ab-var-foot"><span>Variação B</span><span>🔍 Ampliar</span></div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- TESTE A/B 03 -->
+              <div class="ab-box">
+                <div class="ab-box-head">
+                  <div class="ab-test-name">Experimento #03 <span>A vs B</span></div>
+                  <div class="ab-test-meta">2 Variações</div>
+                </div>
+                <div class="ab-variants">
+                  <div class="ab-var-card" onclick="openImageModal(this.querySelector('img').src)">
+                    <div class="ab-var-thumb">
+                      <span class="ab-var-pill">Versão A</span>
+                      <img data-base="img/ad-teste-3A" alt="Teste 3A">
+                    </div>
+                    <div class="ab-var-foot"><span>Controle A</span><span>🔍 Ampliar</span></div>
+                  </div>
+                  <div class="ab-var-card" onclick="openImageModal(this.querySelector('img').src)">
+                    <div class="ab-var-thumb">
+                      <span class="ab-var-pill">Versão B</span>
+                      <img data-base="img/ad-teste-3B" alt="Teste 3B">
+                    </div>
+                    <div class="ab-var-foot"><span>Variação B</span><span>🔍 Ampliar</span></div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- TESTE A/B 04 -->
+              <div class="ab-box">
+                <div class="ab-box-head">
+                  <div class="ab-test-name">Experimento #04 <span>A vs B</span></div>
+                  <div class="ab-test-meta">2 Variações</div>
+                </div>
+                <div class="ab-variants">
+                  <div class="ab-var-card" onclick="openImageModal(this.querySelector('img').src)">
+                    <div class="ab-var-thumb">
+                      <span class="ab-var-pill">Versão A</span>
+                      <img data-base="img/ad-teste-4A" alt="Teste 4A">
+                    </div>
+                    <div class="ab-var-foot"><span>Controle A</span><span>🔍 Ampliar</span></div>
+                  </div>
+                  <div class="ab-var-card" onclick="openImageModal(this.querySelector('img').src)">
+                    <div class="ab-var-thumb">
+                      <span class="ab-var-pill">Versão B</span>
+                      <img data-base="img/ad-teste-4B" alt="Teste 4B">
+                    </div>
+                    <div class="ab-var-foot"><span>Variação B</span><span>🔍 Ampliar</span></div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- TESTE A/B 05 -->
+              <div class="ab-box">
+                <div class="ab-box-head">
+                  <div class="ab-test-name">Experimento #05 <span>A vs B</span></div>
+                  <div class="ab-test-meta">2 Variações</div>
+                </div>
+                <div class="ab-variants">
+                  <div class="ab-var-card" onclick="openImageModal(this.querySelector('img').src)">
+                    <div class="ab-var-thumb">
+                      <span class="ab-var-pill">Versão A</span>
+                      <img data-base="img/ad-teste-5A" alt="Teste 5A">
+                    </div>
+                    <div class="ab-var-foot"><span>Controle A</span><span>🔍 Ampliar</span></div>
+                  </div>
+                  <div class="ab-var-card" onclick="openImageModal(this.querySelector('img').src)">
+                    <div class="ab-var-thumb">
+                      <span class="ab-var-pill">Versão B</span>
+                      <img data-base="img/ad-teste-5B" alt="Teste 5B">
+                    </div>
+                    <div class="ab-var-foot"><span>Variação B</span><span>🔍 Ampliar</span></div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- TESTE A/B 06 -->
+              <div class="ab-box">
+                <div class="ab-box-head">
+                  <div class="ab-test-name">Experimento #06 <span>A vs B</span></div>
+                  <div class="ab-test-meta">2 Variações</div>
+                </div>
+                <div class="ab-variants">
+                  <div class="ab-var-card" onclick="openImageModal(this.querySelector('img').src)">
+                    <div class="ab-var-thumb">
+                      <span class="ab-var-pill">Versão A</span>
+                      <img data-base="img/ad-teste-6A" alt="Teste 6A">
+                    </div>
+                    <div class="ab-var-foot"><span>Controle A</span><span>🔍 Ampliar</span></div>
+                  </div>
+                  <div class="ab-var-card" onclick="openImageModal(this.querySelector('img').src)">
+                    <div class="ab-var-thumb">
+                      <span class="ab-var-pill">Versão B</span>
+                      <img data-base="img/ad-teste-6B" alt="Teste 6B">
+                    </div>
+                    <div class="ab-var-foot"><span>Variação B</span><span>🔍 Ampliar</span></div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- TESTE A/B 07 -->
+              <div class="ab-box">
+                <div class="ab-box-head">
+                  <div class="ab-test-name">Experimento #07 <span>A vs B</span></div>
+                  <div class="ab-test-meta">2 Variações</div>
+                </div>
+                <div class="ab-variants">
+                  <div class="ab-var-card" onclick="openImageModal(this.querySelector('img').src)">
+                    <div class="ab-var-thumb">
+                      <span class="ab-var-pill">Versão A</span>
+                      <img data-base="img/ad-teste-7A" alt="Teste 7A">
+                    </div>
+                    <div class="ab-var-foot"><span>Controle A</span><span>🔍 Ampliar</span></div>
+                  </div>
+                  <div class="ab-var-card" onclick="openImageModal(this.querySelector('img').src)">
+                    <div class="ab-var-thumb">
+                      <span class="ab-var-pill">Versão B</span>
+                      <img data-base="img/ad-teste-7B" alt="Teste 7B">
+                    </div>
+                    <div class="ab-var-foot"><span>Variação B</span><span>🔍 Ampliar</span></div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- TESTE A/B/C 08 (3 VARIAÇÕES AGRUPADAS) -->
+              <div class="ab-box ab-triple">
+                <div class="ab-box-head">
+                  <div class="ab-test-name">Experimento Multivariável #08 <span>A vs B vs C</span></div>
+                  <div class="ab-test-meta">3 Variações Simultâneas</div>
+                </div>
+                <div class="ab-variants">
+                  <div class="ab-var-card" onclick="openImageModal(this.querySelector('img').src)">
+                    <div class="ab-var-thumb">
+                      <span class="ab-var-pill">Versão A</span>
+                      <img data-base="img/ad-teste-8A" alt="Teste 8A">
+                    </div>
+                    <div class="ab-var-foot"><span>Controle A</span><span>🔍 Ampliar</span></div>
+                  </div>
+                  <div class="ab-var-card" onclick="openImageModal(this.querySelector('img').src)">
+                    <div class="ab-var-thumb">
+                      <span class="ab-var-pill">Versão B</span>
+                      <img data-base="img/ad-teste-8B" alt="Teste 8B">
+                    </div>
+                    <div class="ab-var-foot"><span>Variação B</span><span>🔍 Ampliar</span></div>
+                  </div>
+                  <div class="ab-var-card" onclick="openImageModal(this.querySelector('img').src)">
+                    <div class="ab-var-thumb">
+                      <span class="ab-var-pill">Versão C</span>
+                      <img data-base="img/ad-teste-8C" alt="Teste 8C">
+                    </div>
+                    <div class="ab-var-foot"><span>Variação C</span><span>🔍 Ampliar</span></div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
           <div class="sub-tab-footer">
-            <span class="sub-tab-footer-info">Mostrando 11 anúncios de imagem única</span>
+            <span class="sub-tab-footer-info">Mostrando 30 anúncios estáticos + 8 experimentos de Teste A/B</span>
             <button class="sub-tab-next-btn" onclick="switchMetaTab('videos', true)">
               Próximo formato: Ver Anúncios em Vídeo (14) &rarr;
             </button>
           </div>
         </div>
 
-        <!-- ABA 2: VÍDEOS COMPACTOS (14 Peças - Só abrem player no clique) -->
+        <!-- ABA 2: VÍDEOS COMPACTOS (14 Peças na Nova Ordem Solicitada) -->
         <div id="meta-tab-videos" class="sub-tab-content">
-          <div class="pieces-label"><span>●</span> Criativos em Vídeo Vertical — Clique em qualquer vídeo para assistir em tamanho original</div>
-          <div class="pieces-grid col-compact" style="margin-bottom: 32px;">
+          <div class="pieces-label"><span>●</span> Criativos em Vídeo (14) — Clique em qualquer vídeo para assistir em tamanho original</div>
+          <div class="pieces-grid col-compact">
             
-            <div class="piece" onclick="openVideoModal('chd1IzOw21U', true)">
-              <div class="piece-thumb compact-media">
-                <img src="https://i.ytimg.com/vi/chd1IzOw21U/hqdefault.jpg" alt="Vídeo Ad 01" loading="lazy">
-                <div class="media-overlay"><div class="play-badge"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg></div></div>
-              </div>
-              <div class="piece-body">
-                <span class="piece-tag">Vídeo Ad · 01</span>
-                <div class="piece-title">Hook de Atenção</div>
-                <div class="piece-desc">Retenção nos primeiros 3s e CTA direto.</div>
-              </div>
-            </div>
-
-            <div class="piece" onclick="openVideoModal('jPiNFZhkTMI', true)">
-              <div class="piece-thumb compact-media">
-                <img src="https://i.ytimg.com/vi/jPiNFZhkTMI/hqdefault.jpg" alt="Vídeo Ad 02" loading="lazy">
-                <div class="media-overlay"><div class="play-badge"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg></div></div>
-              </div>
-              <div class="piece-body">
-                <span class="piece-tag">Vídeo Ad · 02</span>
-                <div class="piece-title">Dor & Solução</div>
-                <div class="piece-desc">Estrutura PAS para qualificação e clique.</div>
-              </div>
-            </div>
-
+            <!-- 6 PRIMEIROS VÍDEOS DE PRIORIDADE -->
+            <!-- 1. tfKqih05J_8 -->
             <div class="piece" onclick="openVideoModal('tfKqih05J_8', true)">
               <div class="piece-thumb compact-media">
-                <img src="https://i.ytimg.com/vi/tfKqih05J_8/hqdefault.jpg" alt="Vídeo Ad 03" loading="lazy">
+                <img src="https://i.ytimg.com/vi/tfKqih05J_8/hqdefault.jpg" alt="Vídeo Ad 01" loading="lazy">
                 <div class="media-overlay"><div class="play-badge"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg></div></div>
               </div>
               <div class="piece-body">
-                <span class="piece-tag">Vídeo Ad · 03</span>
+                <span class="piece-tag">Destaque · 01 (9:16)</span>
                 <div class="piece-title">Conversão Direta</div>
-                <div class="piece-desc">Captação de leads no topo e meio de funil.</div>
+                <div class="piece-desc">Captação de leads qualificados no topo e meio de funil.</div>
               </div>
             </div>
 
-            <div class="piece" onclick="openVideoModal('i-HkTVmnEJs', true)">
+            <!-- 2. 9SNuh4tVT5E -->
+            <div class="piece" onclick="openVideoModal('9SNuh4tVT5E', false)">
               <div class="piece-thumb compact-media">
-                <img src="https://i.ytimg.com/vi/i-HkTVmnEJs/hqdefault.jpg" alt="Vídeo Ad 04" loading="lazy">
+                <img src="https://i.ytimg.com/vi/9SNuh4tVT5E/hqdefault.jpg" alt="Vídeo Ad 02" loading="lazy">
                 <div class="media-overlay"><div class="play-badge"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg></div></div>
               </div>
               <div class="piece-body">
-                <span class="piece-tag">Vídeo Ad · 04</span>
-                <div class="piece-title">Autoridade</div>
-                <div class="piece-desc">Posicionamento e quebra de objeção.</div>
+                <span class="piece-tag">Destaque · 02 (16:9)</span>
+                <div class="piece-title">Campanha de Conversão</div>
+                <div class="piece-desc">Sustentação de campanha e geração de demanda.</div>
               </div>
             </div>
 
-            <div class="piece" onclick="openVideoModal('ieQQDBLFk8U', true)">
-              <div class="piece-thumb compact-media">
-                <img src="https://i.ytimg.com/vi/ieQQDBLFk8U/hqdefault.jpg" alt="Vídeo Ad 05" loading="lazy">
-                <div class="media-overlay"><div class="play-badge"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg></div></div>
-              </div>
-              <div class="piece-body">
-                <span class="piece-tag">Vídeo Ad · 05</span>
-                <div class="piece-title">Prova & Benefício</div>
-                <div class="piece-desc">Argumentação enxuta conectada ao CTA.</div>
-              </div>
-            </div>
-
-            <div class="piece" onclick="openVideoModal('r81kP2XszzE', true)">
-              <div class="piece-thumb compact-media">
-                <img src="https://i.ytimg.com/vi/r81kP2XszzE/hqdefault.jpg" alt="Vídeo Ad 06" loading="lazy">
-                <div class="media-overlay"><div class="play-badge"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg></div></div>
-              </div>
-              <div class="piece-body">
-                <span class="piece-tag">Vídeo Ad · 06</span>
-                <div class="piece-title">Aquisição</div>
-                <div class="piece-desc">Gancho de curiosidade com ritmo dinâmico.</div>
-              </div>
-            </div>
-
-            <div class="piece" onclick="openVideoModal('Jf6LsgS2aEA', true)">
-              <div class="piece-thumb compact-media">
-                <img src="https://i.ytimg.com/vi/Jf6LsgS2aEA/hqdefault.jpg" alt="Vídeo Ad 07" loading="lazy">
-                <div class="media-overlay"><div class="play-badge"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg></div></div>
-              </div>
-              <div class="piece-body">
-                <span class="piece-tag">Vídeo Ad · 07</span>
-                <div class="piece-title">Resposta Direta</div>
-                <div class="piece-desc">Roteiro focado em maximizar CTR.</div>
-              </div>
-            </div>
-
-            <div class="piece" onclick="openVideoModal('U0D2Lb9oN74', true)">
-              <div class="piece-thumb compact-media">
-                <img src="https://i.ytimg.com/vi/U0D2Lb9oN74/hqdefault.jpg" alt="Vídeo Ad 08" loading="lazy">
-                <div class="media-overlay"><div class="play-badge"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg></div></div>
-              </div>
-              <div class="piece-body">
-                <span class="piece-tag">Vídeo Ad · 08</span>
-                <div class="piece-title">Meio de Funil</div>
-                <div class="piece-desc">Elevação do nível de consciência do lead.</div>
-              </div>
-            </div>
-
-            <div class="piece" onclick="openVideoModal('VZv7GN3bpKk', true)">
-              <div class="piece-thumb compact-media">
-                <img src="https://i.ytimg.com/vi/VZv7GN3bpKk/hqdefault.jpg" alt="Vídeo Ad 09" loading="lazy">
-                <div class="media-overlay"><div class="play-badge"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg></div></div>
-              </div>
-              <div class="piece-body">
-                <span class="piece-tag">Vídeo Ad · 09</span>
-                <div class="piece-title">Gancho Contrário</div>
-                <div class="piece-desc">Quebra de padrão nos primeiros segundos.</div>
-              </div>
-            </div>
-
-            <div class="piece" onclick="openVideoModal('9zNxsrlbp-I', true)">
-              <div class="piece-thumb compact-media">
-                <img src="https://i.ytimg.com/vi/9zNxsrlbp-I/hqdefault.jpg" alt="Vídeo Ad 10" loading="lazy">
-                <div class="media-overlay"><div class="play-badge"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg></div></div>
-              </div>
-              <div class="piece-body">
-                <span class="piece-tag">Vídeo Ad · 10</span>
-                <div class="piece-title">Urgência & Ação</div>
-                <div class="piece-desc">Decisão rápida para público morno.</div>
-              </div>
-            </div>
-
-            <div class="piece" onclick="openVideoModal('SmZVQUka8YY', true)">
-              <div class="piece-thumb compact-media">
-                <img src="https://i.ytimg.com/vi/SmZVQUka8YY/hqdefault.jpg" alt="Vídeo Ad 11" loading="lazy">
-                <div class="media-overlay"><div class="play-badge"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg></div></div>
-              </div>
-              <div class="piece-body">
-                <span class="piece-tag">Vídeo Ad · 11</span>
-                <div class="piece-title">Qualificação</div>
-                <div class="piece-desc">Filtro de perfil ideal logo na abertura.</div>
-              </div>
-            </div>
-
-            <div class="piece" onclick="openVideoModal('0wnkjxV0Q-M', true)">
-              <div class="piece-thumb compact-media">
-                <img src="https://i.ytimg.com/vi/0wnkjxV0Q-M/hqdefault.jpg" alt="Vídeo Ad 12" loading="lazy">
-                <div class="media-overlay"><div class="play-badge"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg></div></div>
-              </div>
-              <div class="piece-body">
-                <span class="piece-tag">Vídeo Ad · 12</span>
-                <div class="piece-title">Fechamento</div>
-                <div class="piece-desc">Chamada direta atacando objeção central.</div>
-              </div>
-            </div>
-
-          </div>
-
-          <div class="pieces-label"><span>●</span> Criativos em Vídeo Horizontal (Clique para assistir)</div>
-          <div class="pieces-grid col-3">
+            <!-- 3. aE2AjvAUwwA -->
             <div class="piece" onclick="openVideoModal('aE2AjvAUwwA', false)">
-              <div class="piece-thumb compact-media landscape">
-                <img src="https://i.ytimg.com/vi/aE2AjvAUwwA/hqdefault.jpg" alt="Vídeo Ad 13" loading="lazy">
+              <div class="piece-thumb compact-media">
+                <img src="https://i.ytimg.com/vi/aE2AjvAUwwA/hqdefault.jpg" alt="Vídeo Ad 03" loading="lazy">
                 <div class="media-overlay"><div class="play-badge"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg></div></div>
               </div>
               <div class="piece-body">
-                <span class="piece-tag">Vídeo Ad · 13</span>
+                <span class="piece-tag">Destaque · 03 (16:9)</span>
                 <div class="piece-title">Narrativa Completa</div>
                 <div class="piece-desc">Desenvolvimento de argumento de vendas e solução.</div>
               </div>
             </div>
 
-            <div class="piece" onclick="openVideoModal('9SNuh4tVT5E', false)">
-              <div class="piece-thumb compact-media landscape">
-                <img src="https://i.ytimg.com/vi/9SNuh4tVT5E/hqdefault.jpg" alt="Vídeo Ad 14" loading="lazy">
+            <!-- 4. VZv7GN3bpKk -->
+            <div class="piece" onclick="openVideoModal('VZv7GN3bpKk', true)">
+              <div class="piece-thumb compact-media">
+                <img src="https://i.ytimg.com/vi/VZv7GN3bpKk/hqdefault.jpg" alt="Vídeo Ad 04" loading="lazy">
                 <div class="media-overlay"><div class="play-badge"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg></div></div>
               </div>
               <div class="piece-body">
-                <span class="piece-tag">Vídeo Ad · 14</span>
-                <div class="piece-title">Campanha de Conversão</div>
-                <div class="piece-desc">Sustentação de campanha e geração de demanda.</div>
+                <span class="piece-tag">Destaque · 04 (9:16)</span>
+                <div class="piece-title">Gancho Contrário</div>
+                <div class="piece-desc">Quebra de padrão nos primeiros segundos no feed.</div>
               </div>
             </div>
+
+            <!-- 5. 0wnkjxV0Q-M -->
+            <div class="piece" onclick="openVideoModal('0wnkjxV0Q-M', true)">
+              <div class="piece-thumb compact-media">
+                <img src="https://i.ytimg.com/vi/0wnkjxV0Q-M/hqdefault.jpg" alt="Vídeo Ad 05" loading="lazy">
+                <div class="media-overlay"><div class="play-badge"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg></div></div>
+              </div>
+              <div class="piece-body">
+                <span class="piece-tag">Destaque · 05 (9:16)</span>
+                <div class="piece-title">Fechamento</div>
+                <div class="piece-desc">Chamada direta atacando objeção central.</div>
+              </div>
+            </div>
+
+            <!-- 6. SmZVQUka8YY -->
+            <div class="piece" onclick="openVideoModal('SmZVQUka8YY', true)">
+              <div class="piece-thumb compact-media">
+                <img src="https://i.ytimg.com/vi/SmZVQUka8YY/hqdefault.jpg" alt="Vídeo Ad 06" loading="lazy">
+                <div class="media-overlay"><div class="play-badge"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg></div></div>
+              </div>
+              <div class="piece-body">
+                <span class="piece-tag">Destaque · 06 (9:16)</span>
+                <div class="piece-title">Qualificação</div>
+                <div class="piece-desc">Filtro de perfil ideal logo na abertura.</div>
+              </div>
+            </div>
+
+            <!-- RESTANTE DOS VÍDEOS NA SEQUÊNCIA -->
+            <!-- 7. chd1IzOw21U -->
+            <div class="piece" onclick="openVideoModal('chd1IzOw21U', true)">
+              <div class="piece-thumb compact-media">
+                <img src="https://i.ytimg.com/vi/chd1IzOw21U/hqdefault.jpg" alt="Vídeo Ad 07" loading="lazy">
+                <div class="media-overlay"><div class="play-badge"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg></div></div>
+              </div>
+              <div class="piece-body">
+                <span class="piece-tag">Vídeo Ad · 07 (9:16)</span>
+                <div class="piece-title">Hook de Atenção</div>
+                <div class="piece-desc">Retenção nos primeiros 3s e CTA direto.</div>
+              </div>
+            </div>
+
+            <!-- 8. jPiNFZhkTMI -->
+            <div class="piece" onclick="openVideoModal('jPiNFZhkTMI', true)">
+              <div class="piece-thumb compact-media">
+                <img src="https://i.ytimg.com/vi/jPiNFZhkTMI/hqdefault.jpg" alt="Vídeo Ad 08" loading="lazy">
+                <div class="media-overlay"><div class="play-badge"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg></div></div>
+              </div>
+              <div class="piece-body">
+                <span class="piece-tag">Vídeo Ad · 08 (9:16)</span>
+                <div class="piece-title">Dor & Solução</div>
+                <div class="piece-desc">Estrutura PAS para qualificação e clique.</div>
+              </div>
+            </div>
+
+            <!-- 9. i-HkTVmnEJs -->
+            <div class="piece" onclick="openVideoModal('i-HkTVmnEJs', true)">
+              <div class="piece-thumb compact-media">
+                <img src="https://i.ytimg.com/vi/i-HkTVmnEJs/hqdefault.jpg" alt="Vídeo Ad 09" loading="lazy">
+                <div class="media-overlay"><div class="play-badge"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg></div></div>
+              </div>
+              <div class="piece-body">
+                <span class="piece-tag">Vídeo Ad · 09 (9:16)</span>
+                <div class="piece-title">Autoridade</div>
+                <div class="piece-desc">Posicionamento e quebra de objeção.</div>
+              </div>
+            </div>
+
+            <!-- 10. ieQQDBLFk8U -->
+            <div class="piece" onclick="openVideoModal('ieQQDBLFk8U', true)">
+              <div class="piece-thumb compact-media">
+                <img src="https://i.ytimg.com/vi/ieQQDBLFk8U/hqdefault.jpg" alt="Vídeo Ad 10" loading="lazy">
+                <div class="media-overlay"><div class="play-badge"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg></div></div>
+              </div>
+              <div class="piece-body">
+                <span class="piece-tag">Vídeo Ad · 10 (9:16)</span>
+                <div class="piece-title">Prova & Benefício</div>
+                <div class="piece-desc">Argumentação enxuta conectada ao CTA.</div>
+              </div>
+            </div>
+
+            <!-- 11. r81kP2XszzE -->
+            <div class="piece" onclick="openVideoModal('r81kP2XszzE', true)">
+              <div class="piece-thumb compact-media">
+                <img src="https://i.ytimg.com/vi/r81kP2XszzE/hqdefault.jpg" alt="Vídeo Ad 11" loading="lazy">
+                <div class="media-overlay"><div class="play-badge"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg></div></div>
+              </div>
+              <div class="piece-body">
+                <span class="piece-tag">Vídeo Ad · 11 (9:16)</span>
+                <div class="piece-title">Aquisição</div>
+                <div class="piece-desc">Gancho de curiosidade com ritmo dinâmico.</div>
+              </div>
+            </div>
+
+            <!-- 12. Jf6LsgS2aEA -->
+            <div class="piece" onclick="openVideoModal('Jf6LsgS2aEA', true)">
+              <div class="piece-thumb compact-media">
+                <img src="https://i.ytimg.com/vi/Jf6LsgS2aEA/hqdefault.jpg" alt="Vídeo Ad 12" loading="lazy">
+                <div class="media-overlay"><div class="play-badge"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg></div></div>
+              </div>
+              <div class="piece-body">
+                <span class="piece-tag">Vídeo Ad · 12 (9:16)</span>
+                <div class="piece-title">Resposta Direta</div>
+                <div class="piece-desc">Roteiro focado em maximizar CTR.</div>
+              </div>
+            </div>
+
+            <!-- 13. U0D2Lb9oN74 -->
+            <div class="piece" onclick="openVideoModal('U0D2Lb9oN74', true)">
+              <div class="piece-thumb compact-media">
+                <img src="https://i.ytimg.com/vi/U0D2Lb9oN74/hqdefault.jpg" alt="Vídeo Ad 13" loading="lazy">
+                <div class="media-overlay"><div class="play-badge"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg></div></div>
+              </div>
+              <div class="piece-body">
+                <span class="piece-tag">Vídeo Ad · 13 (9:16)</span>
+                <div class="piece-title">Meio de Funil</div>
+                <div class="piece-desc">Elevação do nível de consciência do lead.</div>
+              </div>
+            </div>
+
+            <!-- 14. 9zNxsrlbp-I -->
+            <div class="piece" onclick="openVideoModal('9zNxsrlbp-I', true)">
+              <div class="piece-thumb compact-media">
+                <img src="https://i.ytimg.com/vi/9zNxsrlbp-I/hqdefault.jpg" alt="Vídeo Ad 14" loading="lazy">
+                <div class="media-overlay"><div class="play-badge"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg></div></div>
+              </div>
+              <div class="piece-body">
+                <span class="piece-tag">Vídeo Ad · 14 (9:16)</span>
+                <div class="piece-title">Urgência & Ação</div>
+                <div class="piece-desc">Decisão rápida para público morno.</div>
+              </div>
+            </div>
+
           </div>
 
           <div class="sub-tab-footer">
             <button class="sub-tab-next-btn" onclick="switchMetaTab('imagens', true)">
-              &larr; Voltar para Imagem Única (11)
+              &larr; Voltar para Imagem Única + Testes A/B
             </button>
             <button class="sub-tab-next-btn" onclick="switchMetaTab('carrosseis', true)">
               Próximo formato: Ver Carrosséis Interativos (2) &rarr;
@@ -1274,7 +1834,7 @@
               &larr; Voltar para Anúncios em Vídeo (14)
             </button>
             <button class="sub-tab-next-btn" onclick="switchMetaTab('imagens', true)">
-              Voltar ao início: Imagem Única (11) &uarr;
+              Voltar ao início: Imagem Única + Testes A/B &uarr;
             </button>
           </div>
         </div>
@@ -1478,471 +2038,4 @@
             <div class="piece-body">
               <span class="piece-tag">WhatsApp · CRM B2B</span>
               <div class="piece-title">Cadência para decisores financeiros</div>
-              <div class="piece-desc">Sequência de WhatsApp para CFOs e gestores. Tom direto, sem jargão, foco em benefício.</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- 06 PLANEJAMENTO & CRM -->
-    <div class="acc-item" id="acc-crm">
-      <button class="acc-head" onclick="toggleAcc('crm')">
-        <div class="acc-num">06</div>
-        <div class="acc-center">
-          <div class="acc-name">Planejamento &amp; CRM</div>
-          <div class="acc-sub">Planos de marketing, jornadas no Braze e estratégia de lifecycle</div>
-        </div>
-        <div class="acc-indicator">+</div>
-      </button>
-      <div class="acc-panel">
-        <p class="panel-desc">A inteligência por trás de cada campanha — mapeamento de jornada, segmentação comportamental e planos que conectam canais, cadência e mensagem a KPIs claros.</p>
-        <div class="pieces-label">Peças</div>
-        <div class="pieces-grid col-2">
-          <div class="piece">
-            <div class="piece-thumb piece-ph">
-              <div class="piece-ph-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
-            </div>
-            <div class="piece-body">
-              <span class="piece-tag">Jornada · Braze</span>
-              <div class="piece-title">Mapeamento de lifecycle — Monkey Tech</div>
-              <div class="piece-desc">Canvas de CRM: onboarding → ativação → retenção → reativação. B2B fintech.</div>
-            </div>
-          </div>
-          <div class="piece">
-            <div class="piece-thumb piece-ph">
-              <div class="piece-ph-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></div>
-            </div>
-            <div class="piece-body">
-              <span class="piece-tag">Plano de Marketing</span>
-              <div class="piece-title">Plano de comunicação — lançamento 300k</div>
-              <div class="piece-desc">Estrutura do pré-lançamento ao pós-venda: canais, cadência, mensagens-chave e segmentação.</div>
-            </div>
-          </div>
-        </div>
-        <div class="strat-row">
-          <div class="strat-col">
-            <h5>Frameworks</h5>
-            <ul>
-              <li>Lifecycle: aquisição → ativação → retenção → receita</li>
-              <li>Segmentação comportamental e por estágio de funil</li>
-              <li>Jornada multicanal: email, WhatsApp, push, in-app</li>
-              <li>Automações no Braze: Canvas, campanhas e triggers</li>
-            </ul>
-          </div>
-          <div class="strat-col">
-            <h5>Na prática</h5>
-            <ul>
-              <li>Mapeamento de jornada antes de qualquer copy</li>
-              <li>KPIs definidos: abertura, CTR, conversão, churn</li>
-              <li>Testes A/B com hipótese documentada</li>
-              <li>Tom diferenciado por canal e por estágio</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- 07 BIBLIOTECA DE COPYS -->
-    <div class="acc-item" id="acc-biblioteca">
-      <button class="acc-head" onclick="toggleAcc('biblioteca')">
-        <div class="acc-num">07</div>
-        <div class="acc-center">
-          <div class="acc-name">Biblioteca de Copys</div>
-          <div class="acc-sub">Headlines, hooks, subject lines e CTAs organizados por categoria</div>
-        </div>
-        <div class="acc-indicator">+</div>
-      </button>
-      <div class="acc-panel">
-        <p class="panel-desc">Repertório de referência produzido ao longo de anos de prática — organizado por tipo de copy e gatilho, com exemplos reais de campanhas que funcionaram.</p>
-        <div class="pieces-label">Categorias</div>
-        <div class="pieces-grid">
-          <div class="piece">
-            <div class="piece-body" style="padding:22px 18px">
-              <span class="piece-tag">Headlines</span>
-              <div class="piece-title">30 headlines de alta conversão</div>
-              <div class="piece-desc">Organizadas por fórmula: curiosidade, benefício, número, "como fazer", problema-solução.</div>
-            </div>
-          </div>
-          <div class="piece">
-            <div class="piece-body" style="padding:22px 18px">
-              <span class="piece-tag">Hooks · Vídeo</span>
-              <div class="piece-title">20 hooks de abertura para Reels e VSLs</div>
-              <div class="piece-desc">Ganchos de 3–10s: choque, curiosidade, promessa, contrariedade e identificação.</div>
-            </div>
-          </div>
-          <div class="piece">
-            <div class="piece-body" style="padding:22px 18px">
-              <span class="piece-tag">Subject Lines</span>
-              <div class="piece-title">40 subject lines testadas</div>
-              <div class="piece-desc">Campanhas reais com +25% de abertura — curiosidade, urgência e personalização.</div>
-            </div>
-          </div>
-          <div class="piece">
-            <div class="piece-body" style="padding:22px 18px">
-              <span class="piece-tag">CTAs · Multi-canal</span>
-              <div class="piece-title">CTAs por etapa do funil</div>
-              <div class="piece-desc">Calls-to-action por nível de consciência: descoberta, consideração e decisão.</div>
-            </div>
-          </div>
-          <div class="piece">
-            <div class="piece-body" style="padding:22px 18px">
-              <span class="piece-tag">Objeções</span>
-              <div class="piece-title">Argumentos de quebra de objeção</div>
-              <div class="piece-desc">Respostas para as 10 objeções mais comuns em vendas B2B e infoprodutos de alto ticket.</div>
-            </div>
-          </div>
-          <div class="piece">
-            <div class="piece-body" style="padding:22px 18px">
-              <span class="piece-tag">Stories · Scripts</span>
-              <div class="piece-title">Sequências de stories de lançamento</div>
-              <div class="piece-desc">Antes do lançamento, durante a janela e no último dia — copy narrativo para Instagram.</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- 08 CASE: DO ZERO AOS 300K -->
-    <div class="acc-item" id="acc-case300k">
-      <button class="acc-head" onclick="toggleAcc('case300k')">
-        <div class="acc-num">08</div>
-        <div class="acc-center">
-          <div class="acc-name">Case: Do Zero aos 300k</div>
-          <div class="acc-sub">R$9M em 5 dias · copy end-to-end de lançamento premium</div>
-        </div>
-        <div class="acc-indicator">+</div>
-      </button>
-      <div class="acc-panel">
-        <p class="panel-desc">Lançamento end-to-end da mentoria "Do Zero aos 300k" para dentistas — do posicionamento à página de vendas, passando por VSL, sequência de emails, vídeos de aquecimento e copy de anúncios. Grupo ICOM, 2024.</p>
-        <div class="panel-metrics">
-          <div class="pmet"><div class="pmet-val">R$9M</div><div class="pmet-label">Faturamento</div></div>
-          <div class="pmet"><div class="pmet-val">+200</div><div class="pmet-label">Vendas</div></div>
-          <div class="pmet"><div class="pmet-val">5 dias</div><div class="pmet-label">Janela</div></div>
-        </div>
-        <div class="pieces-label">Materiais do case</div>
-        <div class="pieces-grid">
-          <div class="piece">
-            <div class="piece-thumb portrait piece-ph">
-              <div class="piece-ph-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/></svg></div>
-            </div>
-            <div class="piece-body">
-              <span class="piece-tag">Página de Vendas</span>
-              <div class="piece-title">Long-form — "Do Zero aos 300k"</div>
-              <div class="piece-desc">Print e estrutura da página principal. Headline de transformação + arco completo até o fechamento.</div>
-            </div>
-          </div>
-          <div class="piece">
-            <div class="piece-thumb piece-ph">
-              <div class="piece-ph-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polygon points="5 3 19 12 5 21 5 3"/></svg></div>
-            </div>
-            <div class="piece-body">
-              <span class="piece-tag">VSL</span>
-              <div class="piece-title">VSL de abertura de carrinho</div>
-              <div class="piece-desc">Roteiro completo. Gancho de autoridade + história + oferta irresistível.</div>
-            </div>
-          </div>
-          <div class="piece">
-            <div class="piece-thumb piece-ph">
-              <div class="piece-ph-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
-            </div>
-            <div class="piece-body">
-              <span class="piece-tag">Sequência Email</span>
-              <div class="piece-title">7 emails de lançamento</div>
-              <div class="piece-desc">Do pré-lançamento ao fechamento. Subject lines + copy com urgência e prova social.</div>
-            </div>
-          </div>
-        </div>
-        <div class="strat-row">
-          <div class="strat-col">
-            <h5>Contexto</h5>
-            <ul>
-              <li>Mentoria premium para dentistas — R$30k+</li>
-              <li>Público: clínica estabelecida, sem sistema de vendas</li>
-              <li>Necessidade: copy de autoridade e transformação</li>
-              <li>Grupo ICOM · 2024 · +200 vendas em 5 dias</li>
-            </ul>
-          </div>
-          <div class="strat-col">
-            <h5>Atuação end-to-end</h5>
-            <ul>
-              <li>Posicionamento e proposta de valor do produto</li>
-              <li>Página de vendas long-form</li>
-              <li>Sequência de 7 emails (pré + abertura + carrinho)</li>
-              <li>Roteiro VSL + série de 3 vídeos de aquecimento</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- 09 PROJETOS CRIATIVOS -->
-    <div class="acc-item" id="acc-criativos">
-      <button class="acc-head" onclick="toggleAcc('criativos')">
-        <div class="acc-num">09</div>
-        <div class="acc-center">
-          <div class="acc-name">Projetos Criativos</div>
-          <div class="acc-sub">Audiovisual, documentário e experimentações além do copy comercial</div>
-        </div>
-        <div class="acc-indicator">+</div>
-      </button>
-      <div class="acc-panel">
-        <p class="panel-desc">Projetos que expandem o repertório narrativo e alimentam o copy comercial com referências reais — documentário em produção, ensaios e escrita autoral.</p>
-        <div class="pieces-label">Peças</div>
-        <div class="pieces-grid col-2">
-          <div class="piece">
-            <div class="piece-thumb piece-ph">
-              <div class="piece-ph-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="2.18"/><line x1="7" y1="2" x2="7" y2="22"/><line x1="17" y1="2" x2="17" y2="22"/><line x1="2" y1="12" x2="22" y2="12"/><line x1="2" y1="7" x2="7" y2="7"/><line x1="2" y1="17" x2="7" y2="17"/><line x1="17" y1="17" x2="22" y2="17"/><line x1="17" y1="7" x2="22" y2="7"/></svg></div>
-            </div>
-            <div class="piece-body">
-              <span class="piece-tag">Documentário · Em produção</span>
-              <div class="piece-title">Teaser — projeto audiovisual</div>
-              <div class="piece-desc">Roteiro, narrativa e direção criativa. Desenvolvido com parceiro criativo.</div>
-            </div>
-          </div>
-          <div class="piece">
-            <div class="piece-thumb piece-ph">
-              <div class="piece-ph-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg></div>
-            </div>
-            <div class="piece-body">
-              <span class="piece-tag">Escrita Criativa</span>
-              <div class="piece-title">Seleção de ensaios e crônicas</div>
-              <div class="piece-desc">Voz autoral fora do registro comercial. Ensaios que treinam o muscle de narrativa.</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-<!-- SKILLS -->
-<section id="skills">
-  <div class="skills-header">
-    <div class="section-eyebrow">Competências</div>
-    <div class="section-title">Skills</div>
-  </div>
-  <div class="skills-grid">
-    <div class="sk">
-      <div class="sk-num">01</div>
-      <div class="sk-name">Copywriting de Resposta Direta</div>
-      <div class="sk-desc">Lançamentos, páginas de venda, VSL, email marketing, anúncios e roteiros com foco em conversão.</div>
-      <div class="sk-tools"><span class="sk-tool">AIDA</span><span class="sk-tool">PAS</span><span class="sk-tool">Storytelling</span><span class="sk-tool">VSL</span></div>
-    </div>
-    <div class="sk">
-      <div class="sk-num">02</div>
-      <div class="sk-name">CRM & Lifecycle Marketing</div>
-      <div class="sk-desc">Jornadas multicanal, segmentação, testes A/B e otimização de ativação e retenção.</div>
-      <div class="sk-tools"><span class="sk-tool">Braze</span><span class="sk-tool">HubSpot</span><span class="sk-tool">WhatsApp</span><span class="sk-tool">Push</span></div>
-    </div>
-    <div class="sk">
-      <div class="sk-num">03</div>
-      <div class="sk-name">Estratégia de Conteúdo & SEO</div>
-      <div class="sk-desc">Planejamento editorial, SEO on-page, YouTube SEO e crescimento de presença digital orgânica.</div>
-      <div class="sk-tools"><span class="sk-tool">SEO</span><span class="sk-tool">YouTube</span><span class="sk-tool">Instagram</span></div>
-    </div>
-    <div class="sk">
-      <div class="sk-num">04</div>
-      <div class="sk-name">Copy B2B para Decisores</div>
-      <div class="sk-desc">Tradução de soluções complexas em mensagens claras para CFOs e gestores corporativos.</div>
-      <div class="sk-tools"><span class="sk-tool">Fintech</span><span class="sk-tool">Saúde</span><span class="sk-tool">Educação</span></div>
-    </div>
-    <div class="sk">
-      <div class="sk-num">05</div>
-      <div class="sk-name">Lançamentos Digitais</div>
-      <div class="sk-desc">Copy end-to-end para infoprodutos: do posicionamento ao pós-venda.</div>
-      <div class="sk-tools"><span class="sk-tool">Infoprodutos</span><span class="sk-tool">Mentorias</span><span class="sk-tool">Eventos</span></div>
-    </div>
-    <div class="sk">
-      <div class="sk-num">06</div>
-      <div class="sk-name">IA no Processo Criativo</div>
-      <div class="sk-desc">IA generativa para produção em escala sem perda de qualidade ou voz de marca.</div>
-      <div class="sk-tools"><span class="sk-tool">ChatGPT</span><span class="sk-tool">Claude</span><span class="sk-tool">Copilot</span></div>
-    </div>
-  </div>
-</section>
-
-<!-- SOBRE MIM -->
-<section id="sobre">
-  <div class="sobre-photo">
-    <div class="sobre-photo-placeholder">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
-    </div>
-    <div class="sobre-photo-label">Sua foto aqui</div>
-    <div class="sobre-photo-border"></div>
-  </div>
-  <div class="sobre-content">
-    <div class="section-eyebrow">Sobre mim</div>
-    <div class="section-title">Túlio<br>Rodrigues</div>
-    <div class="sobre-divider"></div>
-    <div class="sobre-text">
-      <p>Copywriter Sênior com formação em Jornalismo pela Mackenzie e mais de 10 anos em comunicação — os últimos 5 focados em copy de resposta direta, CRM e lifecycle marketing.</p>
-      <p>Passei por lançamentos de infoprodutos que movimentaram R$9M em 5 dias, construção de audiências orgânicas no Instagram, e jornadas B2B de alta complexidade no Braze para fintech. Atualmente na Monkey Tech, onde cuido da comunicação multicanal para decisores financeiros.</p>
-      <p>Trabalho na intersecção entre narrativa e estratégia — entendo dados, opero ferramentas e entrego copy que fecha.</p>
-    </div>
-    <div class="sobre-tags">
-      <span class="stag">Copywriting</span>
-      <span class="stag">CRM · Lifecycle</span>
-      <span class="stag">Email Marketing</span>
-      <span class="stag">Meta Ads</span>
-      <span class="stag">VSL</span>
-      <span class="stag">Landing Pages</span>
-      <span class="stag">Braze</span>
-      <span class="stag">Lançamentos Digitais</span>
-      <span class="stag">Copy B2B</span>
-    </div>
-  </div>
-</section>
-
-<!-- CONTATO -->
-<section id="contact">
-  <div class="contact-left">
-    <div class="section-eyebrow">Contato</div>
-    <div class="contact-cta-big">Vamos<br>conversar<span>?</span></div>
-    <a class="contact-btn" href="https://wa.me/5511988433883" target="_blank" rel="noopener">
-      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M11.999 2C6.477 2 2 6.477 2 12c0 1.89.525 3.66 1.438 5.168L2.046 22l4.962-1.302A9.956 9.956 0 0011.999 22c5.523 0 10-4.477 10-10S17.522 2 11.999 2zm0 18a7.958 7.958 0 01-4.076-1.118l-.292-.174-3.027.794.808-2.951-.19-.303A7.944 7.944 0 014 12c0-4.411 3.589-8 8-8 4.412 0 8 3.589 8 8s-3.588 8-7.999 8h-.002z"/></svg>
-      Iniciar conversa no WhatsApp
-    </a>
-  </div>
-  <div class="contact-right">
-    <div class="contact-info-block">
-      <div class="contact-info-label">WhatsApp</div>
-      <a class="contact-info-value" href="https://wa.me/5511988433883" target="_blank" rel="noopener">(11) 98843-3883</a>
-    </div>
-    <div class="contact-info-block">
-      <div class="contact-info-label">Email</div>
-      <a class="contact-info-value" href="mailto:tuliorodriguesm@gmail.com">tuliorodriguesm@gmail.com</a>
-    </div>
-    <div class="contact-info-block">
-      <div class="contact-info-label">Localização</div>
-      <div class="contact-info-value" style="color:var(--text-muted);">São Paulo, SP</div>
-    </div>
-    <a class="contact-linkedin" href="https://linkedin.com/in/tuliorodrigues77" target="_blank" rel="noopener">
-      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-      LinkedIn ↗
-    </a>
-  </div>
-</section>
-
-<!-- FOOTER -->
-<footer>
-  <div class="footer-quote">
-    "Escrever é estar no extremo de si mesmo<em>.</em>"
-  </div>
-  <div class="footer-bottom">
-    <div class="foot-copy">© 2026 Túlio Rodrigues — Copywriter Sênior · São Paulo</div>
-  </div>
-</footer>
-
-<script>
-// Controle do Accordion Principal
-let openId = 'meta';
-
-function toggleAcc(id) {
-  const item = document.getElementById('acc-' + id);
-  const isOpen = item.classList.contains('open');
-
-  if (openId && openId !== id) {
-    document.getElementById('acc-' + openId).classList.remove('open');
-  }
-
-  if (!isOpen) {
-    item.classList.add('open');
-    openId = id;
-  } else {
-    item.classList.remove('open');
-    openId = null;
-  }
-}
-
-// Controle das Abas Internas de Meta Ads + Botão Indicador Superior
-function switchMetaTab(tabName, shouldScroll) {
-  const panel = document.getElementById('acc-meta');
-  panel.querySelectorAll('.sub-tab-btn').forEach(btn => btn.classList.remove('active'));
-  panel.querySelectorAll('.sub-tab-content').forEach(content => content.classList.remove('active'));
-
-  document.getElementById('btn-tab-' + tabName).classList.add('active');
-  document.getElementById('meta-tab-' + tabName).classList.add('active');
-
-  // Atualiza a sugestão do botão à direita na barra
-  const hintBtn = document.getElementById('meta-top-hint');
-  if (tabName === 'imagens') {
-    hintBtn.innerHTML = 'Ver Anúncios em Vídeo (14) &rarr;';
-    hintBtn.setAttribute('onclick', "switchMetaTab('videos')");
-  } else if (tabName === 'videos') {
-    hintBtn.innerHTML = 'Ver Carrosséis Interativos (2) &rarr;';
-    hintBtn.setAttribute('onclick', "switchMetaTab('carrosseis')");
-  } else {
-    hintBtn.innerHTML = 'Voltar para Imagem Única (11) &uarr;';
-    hintBtn.setAttribute('onclick', "switchMetaTab('imagens')");
-  }
-
-  if (shouldScroll) {
-    document.getElementById('meta-panel-top').scrollIntoView({ behavior: 'smooth', block: 'start' });
-  }
-}
-
-// Controle dos Carrosséis Deslizantes
-function moveSlide(carId, direction) {
-  const box = document.getElementById('carousel-' + carId);
-  const track = box.querySelector('.carousel-track');
-  const slides = box.querySelectorAll('.carousel-slide');
-  const counter = box.querySelector('.carousel-counter');
-  
-  let currentIdx = parseInt(box.getAttribute('data-idx') || '0', 10);
-  const total = slides.length;
-
-  currentIdx = (currentIdx + direction + total) % total;
-  box.setAttribute('data-idx', currentIdx);
-  track.style.transform = 'translateX(-' + (currentIdx * 100) + '%)';
-  counter.textContent = (currentIdx + 1) + ' / ' + total;
-}
-
-// Modal de Imagem em Tamanho Original
-function openImageModal(src) {
-  if (!src) return;
-  const lb = document.getElementById('lightbox');
-  const body = document.getElementById('lightbox-body');
-  body.innerHTML = '<img src="' + src + '" alt="Visualização em tamanho original">';
-  lb.classList.add('open');
-}
-
-// Modal de Vídeo (Expande e dá Play só quando o recrutador clica)
-function openVideoModal(videoId, isVertical) {
-  const lb = document.getElementById('lightbox');
-  const body = document.getElementById('lightbox-body');
-  const cls = isVertical ? 'lightbox-video-wrap' : 'lightbox-video-wrap landscape';
-  body.innerHTML = '<div class="' + cls + '"><iframe src="https://www.youtube.com/embed/' + videoId + '?autoplay=1&rel=0" allow="autoplay; encrypted-media" allowfullscreen></iframe></div>';
-  lb.classList.add('open');
-}
-
-function closeLightbox(e) {
-  if (e && e.target.tagName === 'IMG') return;
-  const lb = document.getElementById('lightbox');
-  const body = document.getElementById('lightbox-body');
-  lb.classList.remove('open');
-  body.innerHTML = ''; // Para o vídeo imediatamente ao fechar
-}
-
-// Carregador inteligente de extensões (.png, .jpg, .jpeg, .webp)
-document.addEventListener('DOMContentLoaded', () => {
-  const exts = ['.png', '.jpg', '.jpeg', '.webp', '.PNG', '.JPG'];
-  document.querySelectorAll('img[data-base]').forEach(img => {
-    const base = img.getAttribute('data-base');
-    let idx = 0;
-    
-    function tryLoad() {
-      if (idx >= exts.length) return;
-      img.src = base + exts[idx];
-      idx++;
-    }
-    
-    img.onerror = tryLoad;
-    tryLoad();
-  });
-});
-</script>
-
-</body>
-</html>
+              <div class
