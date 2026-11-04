@@ -468,7 +468,7 @@
   }
   .piece-title {
     font-size: 13px; font-weight: 600; color: var(--white);
-    line-height: 1.35; margin-bottom: 4px;
+    line-height: 1.35; margin-bottom: 5px;
   }
   .piece-desc { font-size: 11.5px; color: var(--text-muted); line-height: 1.5 }
 
@@ -496,7 +496,7 @@
     line-height: 1;
   }
   .ab-subtitle {
-    font-size: 13px; color: var(--text-muted); max-width: 520px; line-height: 1.5;
+    font-size: 13px; color: var(--text-muted); max-width: 540px; line-height: 1.5;
   }
 
   .ab-grid {
@@ -507,15 +507,18 @@
     border: 1px solid var(--line-md);
     border-radius: var(--r);
     padding: 16px;
-    display: flex; flex-direction: column; gap: 14px;
+    display: flex; flex-direction: column; gap: 12px;
     transition: border-color .2s;
   }
   .ab-box:hover { border-color: var(--lime-border); }
   .ab-box.ab-triple { grid-column: span 2; }
 
   .ab-box-head {
-    display: flex; align-items: center; justify-content: space-between;
+    display: flex; flex-direction: column; gap: 6px;
     padding-bottom: 10px; border-bottom: 1px solid var(--line);
+  }
+  .ab-box-top-row {
+    display: flex; align-items: center; justify-content: space-between; gap: 8px;
   }
   .ab-test-name {
     font-family: var(--font-display);
@@ -529,7 +532,11 @@
     background: var(--lime); padding: 2px 7px; border-radius: 4px;
   }
   .ab-test-meta {
-    font-size: 11px; color: var(--text-dim); text-transform: uppercase; letter-spacing: 0.06em;
+    font-size: 10px; font-weight: 600; color: var(--lime);
+    text-transform: uppercase; letter-spacing: 0.06em;
+  }
+  .ab-test-hypothesis {
+    font-size: 12px; color: var(--text-muted); line-height: 1.45;
   }
 
   .ab-variants {
@@ -574,14 +581,18 @@
   }
   .ab-var-foot {
     padding: 8px 10px;
-    display: flex; align-items: center; justify-content: space-between;
+    display: flex; align-items: center; justify-content: space-between; gap: 6px;
     font-size: 11px; color: var(--text-muted);
     border-top: 1px solid var(--line);
+  }
+  .ab-var-foot strong {
+    color: var(--white); font-weight: 500;
   }
 
   /* ─── CARROSSEL INTERATIVO ──────────────────────────────────────────── */
   .carousel-grid-compact {
-    display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px;
+    display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px;
+    max-width: 860px;
   }
   .carousel-box {
     position: relative;
@@ -807,7 +818,6 @@
   /* ─── RESPONSIVE ─────────────────────────────────────────────────────── */
   @media (max-width: 1200px) {
     .pieces-grid.col-compact { grid-template-columns: repeat(4, 1fr); }
-    .carousel-grid-compact { grid-template-columns: repeat(2, 1fr); }
   }
   @media (max-width: 1024px) {
     #sobre { grid-template-columns: 260px 1fr; gap: 48px }
@@ -941,7 +951,7 @@
         <div class="acc-indicator">+</div>
       </button>
       <div class="acc-panel" id="meta-panel-top">
-        <p class="panel-desc">Copies e roteiros para Facebook e Instagram Ads combinando gatilhos de resposta direta com a linguagem nativa de cada formato — hooks de 3 segundos, experimentos de Teste A/B, criativos de prova social e sequências de funil do topo ao fechamento.</p>
+        <p class="panel-desc">Copies e roteiros para Facebook e Instagram Ads combinando gatilhos de resposta direta com a linguagem nativa de cada formato — hooks de 3 segundos, experimentos de Teste A/B, criativos de prova social e sequências de funil (Iscas de Topo, Captação de Lançamento e Conversão Perpétua).</p>
         
         <!-- BARRA DE SELEÇÃO DE FORMATO -->
         <div class="format-switcher-bar">
@@ -949,10 +959,10 @@
             <span class="format-label">Escolha o formato:</span>
             <div class="sub-tabs">
               <button type="button" class="sub-tab-btn active" id="btn-tab-imagens" onclick="switchMetaTab('imagens')">
-                01. Imagem Única + Testes A/B <span class="tab-count">30 + 8 Testes</span>
+                01. Imagem Única + Testes A/B <span class="tab-count">26 + 10 Testes</span>
               </button>
               <button type="button" class="sub-tab-btn" id="btn-tab-videos" onclick="switchMetaTab('videos')">
-                02. Anúncios em Vídeo <span class="tab-count">14</span>
+                02. Anúncios em Vídeo <span class="tab-count">12</span>
               </button>
               <button type="button" class="sub-tab-btn" id="btn-tab-carrosseis" onclick="switchMetaTab('carrosseis')">
                 03. Carrosséis <span class="tab-count">2</span>
@@ -964,34 +974,34 @@
           </button>
         </div>
 
-        <!-- ABA 1: IMAGEM ÚNICA (30 Peças + Sub-seção Teste A/B Unificada) -->
+        <!-- ABA 1: IMAGEM ÚNICA (26 Peças + 10 Grupos de Teste A/B) -->
         <div id="meta-tab-imagens" class="sub-tab-content active">
-          <div class="pieces-label"><span>●</span> Criativos de Imagem Única (30) — Clique em qualquer miniatura para ampliar no tamanho original</div>
+          <div class="pieces-label"><span>●</span> Criativos de Imagem Única (26) — Clique em qualquer miniatura para ampliar no tamanho original</div>
           <div class="pieces-grid col-compact" id="meta-static-grid"></div>
 
-          <!-- SUB-SEÇÃO: TESTE A/B (Todos os 8 testes juntos na mesma grade) -->
+          <!-- SUB-SEÇÃO: TESTE A/B (10 Grupos Unificados) -->
           <div class="ab-section-divider">
             <div class="ab-section-header">
               <div class="ab-title-wrap">
                 <span class="ab-badge">⚡ Experimentação & Otimização de Conversão</span>
-                <div class="ab-title">Testes A/B — Comparativo de Variações</div>
+                <div class="ab-title">Testes A/B — Comparativo de Variações (10)</div>
               </div>
-              <p class="ab-subtitle">Anúncios agrupados com seus pares para validação de hipóteses de copy (headlines, ganchos visuais e CTAs). Clique em qualquer variação para ampliar.</p>
+              <p class="ab-subtitle">Experimentos de validação de hipóteses isolando variações de Headline (Copy), direção de arte, contraste e CTA. Clique em qualquer peça para ampliar.</p>
             </div>
             <div class="ab-grid" id="meta-ab-grid"></div>
           </div>
 
           <div class="sub-tab-footer">
-            <span class="sub-tab-footer-info">Mostrando 30 anúncios de imagem única + 8 grupos de Teste A/B</span>
+            <span class="sub-tab-footer-info">Mostrando 26 anúncios de imagem única + 10 grupos de Teste A/B</span>
             <button type="button" class="sub-tab-next-btn" onclick="switchMetaTab('videos', true)">
-              Próximo formato: Ver Anúncios em Vídeo (14) &rarr;
+              Próximo formato: Ver Anúncios em Vídeo (12) &rarr;
             </button>
           </div>
         </div>
 
-        <!-- ABA 2: VÍDEOS COMPACTOS (14 Peças na Ordem Solicitada) -->
+        <!-- ABA 2: VÍDEOS COMPACTOS (12 Peças Únicas) -->
         <div id="meta-tab-videos" class="sub-tab-content">
-          <div class="pieces-label"><span>●</span> Criativos em Vídeo (14) — Clique em qualquer vídeo para assistir em tamanho original</div>
+          <div class="pieces-label"><span>●</span> Criativos em Vídeo (12) — Clique em qualquer vídeo para assistir em tamanho original</div>
           <div class="pieces-grid col-compact" id="meta-videos-grid"></div>
 
           <div class="sub-tab-footer">
@@ -1025,9 +1035,9 @@
                 </div>
               </div>
               <div class="piece-body">
-                <span class="piece-tag">Carrossel Ad · 01 (6 Slides)</span>
-                <div class="piece-title">Sequência de Carrossel — Aquisição & Educação</div>
-                <div class="piece-desc">Progressão narrativa slide a slide: gancho de capa, desenvolvimento do problema, prova e CTA.</div>
+                <span class="piece-tag">Carrossel · Conversão via Direct ("PRESENCIAL")</span>
+                <div class="piece-title">Arco de Perguntas Socráticas & Quebra de Procrastinação</div>
+                <div class="piece-desc">Conduz o leitor por 3 promessas adiadas do cotidiano (academia, livro, amigo) antes de conectar à evolução na Odontologia e converter por palavra-chave no Direct.</div>
               </div>
             </div>
 
@@ -1047,9 +1057,9 @@
                 </div>
               </div>
               <div class="piece-body">
-                <span class="piece-tag">Carrossel Ad · 02 (6 Slides)</span>
-                <div class="piece-title">Sequência de Carrossel — Conversão Direta</div>
-                <div class="piece-desc">Copy estruturada para conduzir o leitor pela dor até a solução, qualificando o clique.</div>
+                <span class="piece-tag">Carrossel · Evento Presencial (Campinas-SP)</span>
+                <div class="piece-title">Neutralização de Objeção Geográfica & Ancoragem de Valor</div>
+                <div class="piece-desc">Transforma a viagem de 500km em argumento de comprometimento, empilhando benefícios (networking, especialistas e show exclusivo) até o CTA conversacional.</div>
               </div>
             </div>
 
@@ -1057,7 +1067,7 @@
 
           <div class="sub-tab-footer">
             <button type="button" class="sub-tab-next-btn" onclick="switchMetaTab('videos', true)">
-              &larr; Voltar para Anúncios em Vídeo (14)
+              &larr; Voltar para Anúncios em Vídeo (12)
             </button>
             <button type="button" class="sub-tab-next-btn" onclick="switchMetaTab('imagens', true)">
               Voltar ao início: Imagem Única + Testes A/B &uarr;
@@ -1622,101 +1632,278 @@
 </footer>
 
 <script>
-// ─── 1. DADOS ESTRUTURADOS DE META ADS ─────────────────────────────────
-// Ordem exata das 30 imagens estáticas (Prioridades no topo + anteriores + novas)
-const staticAdsOrder = [
-  12, 15, 16, 18, 26, 30,
-  1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11,
-  13, 14, 17, 19, 20, 21, 22, 23, 24, 25, 27, 28, 29
+// ─── 1. DADOS CONSOLIDADOS DE META ADS ─────────────────────────────────
+// 26 Imagens Únicas (6 Destaques + 20 na sequência; arquivos 2, 6, 7 e 17 movidos para Testes A/B)
+const staticAdsData = [
+  // Bloco 1: Destaques no Topo (6 peças)
+  { num: 12, tag: 'Destaque · Perpétuo', title: 'Gatilho da Especificidade & Inimigo Comum (Convênios)', desc: 'Metáfora visual de "plano" atacando a maior dor do dentista, com CTA direto para Consultoria Gratuita.' },
+  { num: 15, tag: 'Destaque · Perpétuo', title: 'Gatilho da Autoridade & Prova Concreta (Dados)', desc: 'Subverte o mito de sazonalidade do setor com dados visuais e convida para diagnóstico em Consultoria Gratuita.' },
+  { num: 16, tag: 'Destaque · Lançamento', title: 'Gatilho da Prova Social & Curiosidade (Estudo de Caso)', desc: 'Ancoragem em resultado real de alto ticket para gerar curiosidade e captação de leads para Aula Gratuita.' },
+  { num: 18, tag: 'Destaque · Perpétuo', title: 'Gatilho da Exclusividade & Pertencimento (Call-Out ICP)', desc: 'Estética Wanted para frear a rolagem no feed e filtrar donos de clínicas ambiciosos para Consultoria.' },
+  { num: 26, tag: 'Destaque · Evento / Lançamento', title: 'Gatilho da Curiosidade & Proibido (Censura Nativa)', desc: 'Mimetiza o aviso de conteúdo sensível do Instagram para maximizar o CTR rumo ao evento SucessOdonto.' },
+  { num: 30, tag: 'Destaque · Lançamento', title: 'Gatilho da Especificidade & Simplicidade (Apple Notes)', desc: 'Formato orgânico que neutraliza a objeção "mesmo que não seja sua especialidade" para inscrição na Aula Online.' },
+
+  // Bloco 2: Sequência Principal (1 a 11, exceto 2, 6 e 7)
+  { num: 1,  tag: 'Isca Digital · Topo de Funil', title: 'Gatilho da Reciprocidade & Especificidade (+40%)', desc: 'Oferta de ferramenta prática validada nas clínicas próprias para aquisição de leads com baixo CPL.' },
+  { num: 3,  tag: 'Perpétuo · Conversão Direta', title: 'Gatilho da Prova Social & Autoridade (Advertorial)', desc: 'Emula manchete jornalística com headline provocativa e validação de 3.000 clínicas para clique no link.' },
+  { num: 4,  tag: 'Oferta Direta · Sazonal', title: 'Gatilho da Escassez & Contraste de Valor (Black Friday)', desc: 'Ancoragem definitiva ("Você nunca mais vai precisar comprar outro curso") para conversão direta na Pós/Mentoria.' },
+  { num: 5,  tag: 'Isca Digital · Topo de Funil', title: 'Gatilho da Reciprocidade & Prova Social (3.000 Clínicas)', desc: 'Tangibiliza o segredo de aquisição de pacientes em um manual gratuito em PDF para nutrir a base de CRM.' },
+  { num: 8,  tag: 'Perpétuo · Fundo de Funil', title: 'Gatilho da Simplicidade & Compromisso (30 Minutos)', desc: 'Conversa direta 1-on-1 reduzindo a percepção de esforço para agendamento de Consultoria Estratégica.' },
+  { num: 9,  tag: 'Perpétuo · Consultoria', title: 'Gatilho da Aversão à Perda & Dor de Precificação', desc: 'Gancho de choque atacando o erro de cálculo de custos dos tratamentos, conduzindo ao diagnóstico gratuito.' },
+  { num: 10, tag: 'Perpétuo · Consultoria', title: 'Gatilho da Aversão à Perda & Urgência Financeira (PAS)', desc: 'Visualização literal do prejuízo invisível na precificação para converter leads em sessão de diagnóstico.' },
+  { num: 11, tag: 'Oferta Direta · Black Friday', title: 'Gatilho da Ancoragem de Preço & Contraste de Valor', desc: 'Desarma a objeção financeira logo na headline ao fracionar o ticket de uma pós-graduação reconhecida pelo MEC.' },
+
+  // Bloco 3: Sequência Complementar (13 a 29, exceto 17)
+  { num: 13, tag: 'Lançamento · Captação', title: 'Gatilho do Segredo & Curiosidade (Mecanismo Único)', desc: 'Promete revelar o indicador oculto das clínicas milionárias em uma Aula 100% Gratuita.' },
+  { num: 14, tag: 'Lançamento · Captação', title: 'Gatilho da Ambição & Especificidade (90 Implantes)', desc: 'Conecta o nicho mais lucrativo do setor a um plano prático revelado em evento online gratuito.' },
+  { num: 19, tag: 'Perpétuo · Consultoria', title: 'Gatilho da Dor vs. Prazer (Quebra de Estagnação)', desc: 'Pergunta provocativa que captura dentistas estagnados no meio de funil com oferta de consultoria gratuita.' },
+  { num: 20, tag: 'Perpétuo · Consultoria', title: 'Gatilho da Empatia/Identificação & Dor da Rotina', desc: 'Metáfora visual da exaustão operacional do dentista posicionando a Consultoria Gratuita como saída.' },
+  { num: 21, tag: 'Isca Digital · Topo de Funil', title: 'Gatilho da Especificidade (+40%) & Ganho Rápido', desc: 'Foco em resultado imediato através do download gratuito da isca digital (script de agendamento).' },
+  { num: 22, tag: 'Perpétuo · Regionalização', title: 'Gatilho do Pertencimento Regional & Especificidade', desc: 'Adaptação regionalizada para gerar identificação imediata e reduzir o CPL no público do Nordeste.' },
+  { num: 23, tag: 'Lançamento · Aula Ao Vivo', title: 'Gatilho da Urgência & Oportunidade (Evento Ao Vivo)', desc: 'Posiciona a masterclass com data e hora marcada como o caminho para capturar a demanda de implantes.' },
+  { num: 24, tag: 'Isca Digital · Topo de Funil', title: 'Gatilho da Simplicidade & Ação Imediata (Gamificação)', desc: 'Interação visual que ataca a dor da inadimplência e entrega guia prático em PDF no clique.' },
+  { num: 25, tag: 'Lançamento · Captação', title: 'Gatilho da Especificidade Extrema (90 em 30 Dias)', desc: 'Destaque absoluto para a métrica de resultado para leitura em menos de 1 segundo e inscrição na aula.' },
+  { num: 27, tag: 'Lançamento · Captação', title: 'Gatilho da Autoridade Visual & Promessa Específica', desc: 'Tangibilização do produto de alto ticket (implante) combinada à promessa central do lançamento.' },
+  { num: 28, tag: 'Perpétuo · Consultoria', title: 'Gatilho da Prova & Exclusividade (Plano Sob Medida)', desc: 'Quebra o ceticismo sobre independência de convênios oferecendo uma sessão estratégica personalizada.' },
+  { num: 29, tag: 'Lançamento · Captação', title: 'Gatilho da Antecipação & Especificidade (Aula Ao Vivo)', desc: 'Versão editorial clara destacando o cronograma da aula gratuita para maximizar inscrições.' }
 ];
 
-// Todos os 8 grupos de Teste A/B na mesma sub-seção (incluindo o #8 com 3 variações)
+// 10 Grupos de Teste A/B (Com #01 e #10 trocados para priorizar os Testes de Copy/Headline no topo)
 const abTestsData = [
-  { id: 1, vars: ['1A', '1B'] },
-  { id: 2, vars: ['2A', '2B'] },
-  { id: 3, vars: ['3A', '3B'] },
-  { id: 4, vars: ['4A', '4B'] },
-  { id: 5, vars: ['5A', '5B'] },
-  { id: 6, vars: ['6A', '6B'] },
-  { id: 7, vars: ['7A', '7B'] },
-  { id: 8, vars: ['8A', '8B', '8C'] }
+  {
+    id: 1,
+    funnel: 'Isca Digital · Guia de Gravação',
+    hypothesis: 'Teste Puro de Headline (Gatilho da Especificidade vs. Gancho de Resultado) mantendo 100% do mesmo layout.',
+    vars: [
+      { file: 'img/ad-img-2',  pill: 'Versão A', label: 'Foco no Meio: "Grave anúncios profissionais..."' },
+      { file: 'img/ad-img-17', pill: 'Versão B', label: 'Foco no Fim: "Aprenda a gravar vídeos que lotam a agenda..."' }
+    ]
+  },
+  {
+    id: 2,
+    funnel: 'Lançamento · Aulas 26 e 27 de Maio',
+    hypothesis: 'Teste de Headline (Gatilho da Antecipação/FOMO vs. Prova Social) sobre o mesmo criativo nativo de WhatsApp.',
+    vars: [
+      { file: 'img/ad-teste-2A', pill: 'Versão A', label: 'Headline: "Tem gente perdendo o sono..."' },
+      { file: 'img/ad-teste-2B', pill: 'Versão B', label: 'Headline: "Meu WhatsApp não para..."' }
+    ]
+  },
+  {
+    id: 3,
+    funnel: 'Lançamento · A Mina de Ouro',
+    hypothesis: 'Contraste de Layout e Fundo (Dark Mode vs. Light Split) mantendo a mesma copy para avaliar leitura no feed.',
+    vars: [
+      { file: 'img/ad-teste-3A', pill: 'Versão A', label: 'Full Dark (Imersão Visual)' },
+      { file: 'img/ad-teste-3B', pill: 'Versão B', label: 'Fundo Claro Dividido (Foco em Leitura)' }
+    ]
+  },
+  {
+    id: 4,
+    funnel: 'Lançamento · 90 Implantes em 30 Dias',
+    hypothesis: 'Cor e Contraste do Botão de CTA no rodapé da peça para otimizar a taxa de clique (CTR).',
+    vars: [
+      { file: 'img/ad-teste-4A', pill: 'Versão A', label: 'CTA Escuro / Discreto' },
+      { file: 'img/ad-teste-4B', pill: 'Versão B', label: 'CTA Azul Vibrante (Alto Contraste)' }
+    ]
+  },
+  {
+    id: 5,
+    funnel: 'Lançamento · Caixa Preta da Odontologia',
+    hypothesis: 'Tipografia da Palavra-Chave ("Ninguém") + Cor do Botão de CTA (Frio vs. Quente/Urgência).',
+    vars: [
+      { file: 'img/ad-teste-5A', pill: 'Versão A', label: 'Cursiva Azul + CTA Azul' },
+      { file: 'img/ad-teste-5B', pill: 'Versão B', label: 'Caixa Alta Laranja + CTA Laranja' }
+    ]
+  },
+  {
+    id: 6,
+    funnel: 'Lançamento · Estudo de Caso R$ 300 Mil/Mês',
+    hypothesis: 'Enquadramento de Imagem (Close Humanizado nos Bastidores vs. Plano Aberto da Estrutura da Clínica).',
+    vars: [
+      { file: 'img/ad-teste-6A', pill: 'Versão A', label: 'Plano Fechado (Foco Humano)' },
+      { file: 'img/ad-teste-6B', pill: 'Versão B', label: 'Plano Aberto (Foco em Estrutura)' }
+    ]
+  },
+  {
+    id: 7,
+    funnel: 'Lançamento · Aula 12 de Setembro',
+    hypothesis: 'Peso Visual e Destaque de Cor na Sub-headline para condução da leitura diagonal.',
+    vars: [
+      { file: 'img/ad-teste-7A', pill: 'Versão A', label: 'Sub-headline com Grifo Laranja' },
+      { file: 'img/ad-teste-7B', pill: 'Versão B', label: 'Sub-headline Limpa sem Grifo' }
+    ]
+  },
+  {
+    id: 8,
+    funnel: 'Lançamento · Abrindo a Caixa Preta (R$ 300k/Mês)',
+    hypothesis: 'Teste Multivariável de Direção de Arte (Representação da Caixa Preta) e Hierarquia do CTA.',
+    vars: [
+      { file: 'img/ad-teste-8A', pill: 'Versão A', label: 'Caixa Explosiva + Botão Sólido' },
+      { file: 'img/ad-teste-8B', pill: 'Versão B', label: 'Cofre 3D Minimalista + Botão Sólido' },
+      { file: 'img/ad-teste-8C', pill: 'Versão C', label: 'Mão Abrindo a Caixa + CTA em Texto' }
+    ]
+  },
+  {
+    id: 9,
+    funnel: 'Perpétuo · Consultoria Gratuita',
+    hypothesis: 'Contraste de Fundo (Light Box vs. Full Dark) para o gancho "Seus pacientes não vão cair do céu!".',
+    vars: [
+      { file: 'img/ad-img-6', pill: 'Versão A', label: 'Versão Light (Box de Texto Branco)' },
+      { file: 'img/ad-img-7', pill: 'Versão B', label: 'Versão Dark (Texto Integrado ao Fundo)' }
+    ]
+  },
+  {
+    id: 10,
+    funnel: 'Isca Digital · Script de Agendamento',
+    hypothesis: 'Metáfora Visual + Micro-variação de Copy no subtítulo (Gatilho da Curiosidade).',
+    vars: [
+      { file: 'img/ad-teste-1A', pill: 'Versão A', label: 'Cubo de Gelo ("Destrave seu comercial")' },
+      { file: 'img/ad-teste-1B', pill: 'Versão B', label: 'Olho na Fechadura (Curiosidade Visual)' }
+    ]
+  }
 ];
 
-// Ordem exata dos 14 vídeos (6 prioridades no topo + 8 na sequência)
+// 12 Vídeos Únicos com Descrições Baseadas nas Transcrições Reais
 const videoAdsData = [
-  { id: 'tfKqih05J_8', vertical: true,  tag: 'Destaque · 01 (9:16)', title: 'Conversão Direta', desc: 'Captação de leads qualificados no topo e meio de funil.' },
-  { id: '9SNuh4tVT5E', vertical: false, tag: 'Destaque · 02 (16:9)', title: 'Campanha de Conversão', desc: 'Sustentação de campanha e geração de demanda.' },
-  { id: 'aE2AjvAUwwA', vertical: false, tag: 'Destaque · 03 (16:9)', title: 'Narrativa Completa', desc: 'Desenvolvimento de argumento de vendas e solução.' },
-  { id: 'VZv7GN3bpKk', vertical: true,  tag: 'Destaque · 04 (9:16)', title: 'Gancho Contrário', desc: 'Quebra de padrão nos primeiros segundos no feed.' },
-  { id: '0wnkjxV0Q-M', vertical: true,  tag: 'Destaque · 05 (9:16)', title: 'Fechamento', desc: 'Chamada direta atacando objeção central.' },
-  { id: 'SmZVQUka8YY', vertical: true,  tag: 'Destaque · 06 (9:16)', title: 'Qualificação', desc: 'Filtro de perfil ideal logo na abertura.' },
-  { id: 'chd1IzOw21U', vertical: true,  tag: 'Vídeo Ad · 07 (9:16)', title: 'Hook de Atenção', desc: 'Retenção nos primeiros 3s e CTA direto.' },
-  { id: 'jPiNFZhkTMI', vertical: true,  tag: 'Vídeo Ad · 08 (9:16)', title: 'Dor & Solução', desc: 'Estrutura PAS para qualificação e clique.' },
-  { id: 'i-HkTVmnEJs', vertical: true,  tag: 'Vídeo Ad · 09 (9:16)', title: 'Autoridade', desc: 'Posicionamento e quebra de objeção.' },
-  { id: 'ieQQDBLFk8U', vertical: true,  tag: 'Vídeo Ad · 10 (9:16)', title: 'Prova & Benefício', desc: 'Argumentação enxuta conectada ao CTA.' },
-  { id: 'r81kP2XszzE', vertical: true,  tag: 'Vídeo Ad · 11 (9:16)', title: 'Aquisição', desc: 'Gancho de curiosidade com ritmo dinâmico.' },
-  { id: 'Jf6LsgS2aEA', vertical: true,  tag: 'Vídeo Ad · 12 (9:16)', title: 'Resposta Direta', desc: 'Roteiro focado em maximizar CTR.' },
-  { id: 'U0D2Lb9oN74', vertical: true,  tag: 'Vídeo Ad · 13 (9:16)', title: 'Meio de Funil', desc: 'Elevação do nível de consciência do lead.' },
-  { id: '9zNxsrlbp-I', vertical: true,  tag: 'Vídeo Ad · 14 (9:16)', title: 'Urgência & Ação', desc: 'Decisão rápida para público morno.' }
+  {
+    id: 'tfKqih05J_8',
+    vertical: true,
+    tag: 'Destaque · 01 · Lançamento (Aula Gratuita)',
+    title: 'Hook de Choque Numérico (R$ 4.300) & Contraste Extremo',
+    desc: 'Abre com a renda média da categoria para gerar indignação, quebra a crença de mercado saturado e convida para a abertura da "Caixa Preta" (0 a R$ 300k em 1 mês).'
+  },
+  {
+    id: '9SNuh4tVT5E',
+    vertical: false,
+    tag: 'Destaque · 02 · Conversão Direta (Ingresso)',
+    title: 'Pattern Interrupt (Sirene) & Gatilho da Prova Social / FOMO',
+    desc: 'Alerta visual seguido de gravação in loco com auditório lotado e cenas da edição anterior para tangibilizar a experiência e vender ingressos do SucessOdonto Presencial.'
+  },
+  {
+    id: 'aE2AjvAUwwA',
+    vertical: false,
+    tag: 'Destaque · 03 · Perpétuo / Curso SucessOdonto',
+    title: 'Provocação de Ego & Mecanismo Único (Gestão + Marketing)',
+    desc: 'Confronta a dor do excesso de foco técnico vs. falta de gestão, apresentando os "10 Mandamentos" do curso SucessOdonto para destravar os R$ 100k/mês.'
+  },
+  {
+    id: 'VZv7GN3bpKk',
+    vertical: true,
+    tag: 'Destaque · 04 · Perpétuo / Isca (Aula de 20 min)',
+    title: 'Gatilho da Antecipação & Autoridade Baseada em Dados',
+    desc: 'Usa a metáfora de "prever o futuro" ancorada em pesquisas de mercado para atrair dentistas estratégicos para uma aula enxuta de 20 minutos.'
+  },
+  {
+    id: 'SmZVQUka8YY',
+    vertical: true,
+    tag: 'Destaque · 05 · Conversão Direta (Evento Presencial)',
+    title: 'Formato Nativo (Search Mockup) & Ancoragem de Autoridade',
+    desc: 'Criativo dinâmico emulando pesquisa no Google para posicionar o SucessOdonto Presencial (Campinas + show exclusivo) com leitura rápida em cartelas.'
+  },
+  {
+    id: 'chd1IzOw21U',
+    vertical: true,
+    tag: 'Vídeo Ad · 06 · Lançamento Sazonal (Dia do Dentista)',
+    title: 'Gatilho da Autoridade (+1.000 Clínicas) & Razão Por Quê',
+    desc: 'Valida a promessa nos primeiros segundos com o histórico de 1.000 consultórios assessorados e usa o Dia do Dentista como gancho para o aulão gratuito.'
+  },
+  {
+    id: 'jPiNFZhkTMI',
+    vertical: true,
+    tag: 'Vídeo Ad · 07 · Lançamento (Variação de Empatia)',
+    title: 'Gatilho da Empatia (Skin in the Game) & Especificidade',
+    desc: 'Variação de copy para o aulão dos 10 Mandamentos que adiciona conexão emocional ("faço isso nas minhas clínicas e já passei pelo que você passa").'
+  },
+  {
+    id: 'i-HkTVmnEJs',
+    vertical: true,
+    tag: 'Vídeo Ad · 08 · Lançamento (Variação Direta de Hook)',
+    title: 'Quebra de Objeção Imediata & Estudo de Caso (0 a R$ 300k)',
+    desc: 'Variação de corte seco do case da clínica recém-inaugurada, iniciando direto na refutação da desculpa de "mercado fraco" para testar retenção de 3s.'
+  },
+  {
+    id: 'ieQQDBLFk8U',
+    vertical: true,
+    tag: 'Vídeo Ad · 09 · Lançamento (4 Aulas Gratuitas)',
+    title: 'Contraste Temporal (6 Horas vs. Anos de Tentativa) & Escassez',
+    desc: 'Tangibiliza o ROI do tempo investido no evento gratuito, detalhando métricas reais (investimento, conversão e ticket médio) da clínica de R$ 300k.'
+  },
+  {
+    id: 'r81kP2XszzE',
+    vertical: true,
+    tag: 'Vídeo Ad · 10 · Captação de Live (10 Personas)',
+    title: 'Demonstração Prática (Storytelling "Seu João") & Reciprocidade',
+    desc: 'Entrega uma técnica real de vendas (gatilho do merecimento para público 60+) dentro do próprio anúncio antes de convidar para a live das 10 personas.'
+  },
+  {
+    id: 'U0D2Lb9oN74',
+    vertical: true,
+    tag: 'Vídeo Ad · 11 · Captação de Evento (Imersão YouTube)',
+    title: 'Gatilho da Simplicidade & Mecanismo de Execução',
+    desc: 'Desmistifica a complexidade do marketing digital prometendo 3 estratégias práticas de aplicação imediata na imersão "A Nova Evolução".'
+  },
+  {
+    id: '9zNxsrlbp-I',
+    vertical: true,
+    tag: 'Vídeo Ad · 12 · Perpétuo / Curso SucessOdonto',
+    title: 'Quebra de Paradigma & Gatilho da Curiosidade (10 Mandamentos)',
+    desc: 'Anúncio dinâmico em cartelas de texto que normaliza o faturamento de R$ 100k/mês através do método ensinado no curso SucessOdonto.'
+  }
 ];
 
 // ─── 2. RENDERIZAÇÃO AUTOMÁTICA DAS GRADES ──────────────────────────────
 function renderMetaGalleries() {
-  // Renderizar 30 Imagens Estáticas
+  // Renderizar 26 Imagens Estáticas
   const staticGrid = document.getElementById('meta-static-grid');
-  staticGrid.innerHTML = staticAdsOrder.map((fileNum, index) => {
-    const pos = String(index + 1).padStart(2, '0');
-    const isPriority = index < 6;
-    const tagLabel = isPriority ? `Destaque · ${pos}` : `Imagem · ${pos}`;
+  staticGrid.innerHTML = staticAdsData.map((item, idx) => {
+    const numOrder = String(idx + 1).padStart(2, '0');
     return `
       <div class="piece" onclick="openImageModal(this.querySelector('img').src)">
         <div class="piece-thumb compact-media">
-          <img data-base="img/ad-img-${fileNum}" alt="Anúncio Imagem ${fileNum}">
+          <img data-base="img/ad-img-${item.num}" alt="${item.title}">
           <span class="zoom-badge">🔍 Ampliar</span>
         </div>
         <div class="piece-body">
-          <span class="piece-tag">${tagLabel}</span>
-          <div class="piece-title">Criativo Resposta Direta</div>
-          <div class="piece-desc">Copy focada em parada rápida no feed e geração de cliques qualificados.</div>
+          <span class="piece-tag">${numOrder} · ${item.tag}</span>
+          <div class="piece-title">${item.title}</div>
+          <div class="piece-desc">${item.desc}</div>
         </div>
       </div>
     `;
   }).join('');
 
-  // Renderizar 8 Testes A/B na mesma sub-seção
+  // Renderizar 10 Testes A/B na mesma sub-seção
   const abGrid = document.getElementById('meta-ab-grid');
   abGrid.innerHTML = abTestsData.map(test => {
     const numStr = String(test.id).padStart(2, '0');
     const isTriple = test.vars.length === 3;
     const badgeText = isTriple ? 'A vs B vs C' : 'A vs B';
-    const metaText = `${test.vars.length} Variações`;
 
-    const variantsHtml = test.vars.map((vCode, vIdx) => {
-      const letter = vCode.slice(-1);
-      const footLabel = vIdx === 0 ? `Controle ${letter}` : `Variação ${letter}`;
-      return `
-        <div class="ab-var-card" onclick="openImageModal(this.querySelector('img').src)">
-          <div class="ab-var-thumb">
-            <span class="ab-var-pill">Versão ${letter}</span>
-            <img data-base="img/ad-teste-${vCode}" alt="Teste ${vCode}">
-          </div>
-          <div class="ab-var-foot"><span>${footLabel}</span><span>🔍 Ampliar</span></div>
+    const variantsHtml = test.vars.map(v => `
+      <div class="ab-var-card" onclick="openImageModal(this.querySelector('img').src)">
+        <div class="ab-var-thumb">
+          <span class="ab-var-pill">${v.pill}</span>
+          <img data-base="${v.file}" alt="${v.label}">
         </div>
-      `;
-    }).join('');
+        <div class="ab-var-foot"><strong>${v.label}</strong><span>🔍</span></div>
+      </div>
+    `).join('');
 
     return `
       <div class="ab-box ${isTriple ? 'ab-triple' : ''}">
         <div class="ab-box-head">
-          <div class="ab-test-name">Teste A/B #${numStr} <span>${badgeText}</span></div>
-          <div class="ab-test-meta">${metaText}</div>
+          <div class="ab-box-top-row">
+            <div class="ab-test-name">Teste A/B #${numStr} <span>${badgeText}</span></div>
+            <div class="ab-test-meta">${test.funnel}</div>
+          </div>
+          <div class="ab-test-hypothesis">${test.hypothesis}</div>
         </div>
         <div class="ab-variants">${variantsHtml}</div>
       </div>
     `;
   }).join('');
 
-  // Renderizar 14 Vídeos
+  // Renderizar 12 Vídeos Únicos
   const videosGrid = document.getElementById('meta-videos-grid');
   videosGrid.innerHTML = videoAdsData.map(v => `
     <div class="piece" onclick="openVideoModal('${v.id}', ${v.vertical})">
@@ -1739,7 +1926,6 @@ function renderMetaGalleries() {
 
 // ─── 3. CARREGADOR INTELIGENTE DE EXTENSÕES (.jpg, .png, .jpeg, .webp) ──
 function initSmartImages() {
-  // Prioriza .jpg (maioria no seu GitHub) e faz fallback automático para .png
   const exts = ['.jpg', '.png', '.jpeg', '.webp', '.JPG', '.PNG'];
   document.querySelectorAll('img[data-base]').forEach(img => {
     const base = img.getAttribute('data-base');
@@ -1784,7 +1970,7 @@ function switchMetaTab(tabName, shouldScroll) {
 
   const hintBtn = document.getElementById('meta-top-hint');
   if (tabName === 'imagens') {
-    hintBtn.innerHTML = 'Ver Anúncios em Vídeo &rarr;';
+    hintBtn.innerHTML = 'Ver Anúncios em Vídeo (12) &rarr;';
     hintBtn.setAttribute('onclick', "switchMetaTab('videos')");
   } else if (tabName === 'videos') {
     hintBtn.innerHTML = 'Ver Carrosséis (2) &rarr;';
