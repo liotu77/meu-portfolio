@@ -269,7 +269,7 @@
 
   .panel-desc {
     font-size: 16px; color: var(--text-muted); line-height: 1.75;
-    max-width: 720px; margin-bottom: 32px;
+    max-width: 760px; margin-bottom: 32px;
   }
 
   /* ─── SELETOR DE FORMATOS (SUB-TABS) ────────────────────────────────── */
@@ -346,7 +346,7 @@
 
   /* ─── GRIDS COMPACTOS & MINIATURAS ──────────────────────────────────── */
   .panel-metrics {
-    display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 36px;
+    display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 32px;
   }
   .pmet {
     border: 1px solid var(--line-md);
@@ -376,6 +376,10 @@
   .pieces-grid.col-compact {
     grid-template-columns: repeat(5, 1fr);
     gap: 12px;
+  }
+  .pieces-grid.col-4 {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 14px;
   }
   .pieces-grid.col-3 { grid-template-columns: repeat(3, 1fr); }
   .pieces-grid.col-2 { grid-template-columns: repeat(2, 1fr); }
@@ -409,8 +413,21 @@
     transition: transform .35s ease, opacity .25s ease;
     opacity: 0.92;
   }
-  .piece:hover .piece-thumb.compact-media img {
-    transform: scale(1.04); opacity: 1;
+  .piece-thumb.email-thumb {
+    aspect-ratio: 3/4;
+    cursor: pointer;
+    background: #101010;
+  }
+  .piece-thumb.email-thumb img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    object-position: top center;
+    transition: transform .35s ease, opacity .25s ease;
+    opacity: 0.94;
+  }
+  .piece:hover .piece-thumb.compact-media img,
+  .piece:hover .piece-thumb.email-thumb img {
+    transform: scale(1.03); opacity: 1;
   }
 
   .media-overlay {
@@ -437,14 +454,22 @@
 
   .zoom-badge {
     position: absolute; bottom: 8px; right: 8px;
-    background: rgba(8,8,8,0.82); border: 1px solid var(--line-md);
+    background: rgba(8,8,8,0.86); border: 1px solid var(--line-md);
     color: var(--white); font-size: 10px; font-weight: 600;
     padding: 4px 8px; border-radius: 4px;
     display: inline-flex; align-items: center; gap: 4px;
-    opacity: 0.85; transition: all .2s;
+    opacity: 0.9; transition: all .2s;
   }
   .piece:hover .zoom-badge {
     background: var(--lime); color: var(--black); border-color: var(--lime); opacity: 1;
+  }
+
+  .step-pill {
+    position: absolute; top: 8px; left: 8px;
+    background: rgba(8,8,8,0.9); border: 1px solid var(--lime-border);
+    color: var(--lime); font-size: 9.5px; font-weight: 700;
+    padding: 3px 8px; border-radius: 4px; letter-spacing: 0.06em;
+    text-transform: uppercase; z-index: 4;
   }
 
   .piece-ph {
@@ -471,6 +496,72 @@
     line-height: 1.35; margin-bottom: 5px;
   }
   .piece-desc { font-size: 11.5px; color: var(--text-muted); line-height: 1.5 }
+
+  /* ─── CONTAINERS DE SEQUÊNCIAS DE E-MAIL (FLUXOS & RÉGUAS) ──────────── */
+  .email-block-divider {
+    margin-top: 48px; padding-top: 36px;
+    border-top: 1px solid var(--line-md);
+  }
+  .email-block-divider:first-of-type {
+    margin-top: 0; padding-top: 0; border-top: none;
+  }
+  .email-block-head {
+    margin-bottom: 22px;
+  }
+  .email-block-eyebrow {
+    display: inline-flex; align-items: center; gap: 6px;
+    font-size: 10px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--lime); background: var(--lime-dim);
+    border: 1px solid var(--lime-border);
+    padding: 3px 10px; border-radius: 4px; margin-bottom: 8px;
+  }
+  .email-block-title {
+    font-family: var(--font-display);
+    font-size: clamp(24px, 2.8vw, 34px); font-weight: 800;
+    text-transform: uppercase; color: var(--white); letter-spacing: 0.02em;
+    line-height: 1.05;
+  }
+  .email-block-sub {
+    font-size: 13.5px; color: var(--text-muted); margin-top: 6px; max-width: 740px; line-height: 1.55;
+  }
+
+  .email-seq-box {
+    background: var(--off);
+    border: 1px solid var(--line-md);
+    border-radius: var(--r);
+    padding: 20px;
+    margin-bottom: 22px;
+    transition: border-color .2s;
+  }
+  .email-seq-box:hover { border-color: var(--lime-border); }
+  .email-seq-header {
+    display: flex; align-items: flex-start; justify-content: space-between;
+    flex-wrap: wrap; gap: 12px;
+    padding-bottom: 14px; margin-bottom: 16px;
+    border-bottom: 1px solid var(--line);
+  }
+  .email-seq-title-group { display: flex; flex-direction: column; gap: 4px; }
+  .email-seq-name {
+    font-family: var(--font-display);
+    font-size: 22px; font-weight: 800; text-transform: uppercase;
+    color: var(--white); letter-spacing: 0.03em;
+    display: flex; align-items: center; gap: 10px; flex-wrap: wrap;
+  }
+  .email-seq-name span {
+    font-family: var(--font-body);
+    font-size: 10px; font-weight: 700; color: var(--black);
+    background: var(--lime); padding: 2px 8px; border-radius: 4px;
+    letter-spacing: 0.05em;
+  }
+  .email-seq-desc {
+    font-size: 12.5px; color: var(--text-muted); max-width: 780px; line-height: 1.5;
+  }
+  .email-seq-meta {
+    font-size: 11px; font-weight: 600; color: var(--lime);
+    text-transform: uppercase; letter-spacing: 0.08em;
+    background: var(--lime-dim); border: 1px solid var(--lime-border);
+    padding: 5px 10px; border-radius: 6px; white-space: nowrap;
+  }
 
   /* ─── SUB-SEÇÃO TESTE A/B UNIFICADA ─────────────────────────────────── */
   .ab-section-divider {
@@ -634,7 +725,7 @@
     letter-spacing: 0.05em;
   }
 
-  /* ─── LIGHTBOX MODAL ────────────────────────────────────────────────── */
+  /* ─── LIGHTBOX MODAL (COM SUPORTE A SCROLL DE E-MAIL COMPRIDO) ──────── */
   .lightbox {
     display: none; position: fixed; inset: 0; z-index: 999;
     background: rgba(0,0,0,0.92); backdrop-filter: blur(12px);
@@ -650,6 +741,26 @@
     max-width: 90vw; max-height: 86vh; object-fit: contain;
     border-radius: 8px; border: 1px solid var(--line-md);
     box-shadow: 0 24px 60px rgba(0,0,0,0.8);
+  }
+  /* Modo Leitura de E-mail Comprido no Lightbox */
+  .lightbox-email-scroll {
+    max-height: 88vh;
+    width: min(680px, 92vw);
+    overflow-y: auto;
+    background: #111;
+    border-radius: 10px;
+    border: 1px solid var(--lime-border);
+    box-shadow: 0 24px 60px rgba(0,0,0,0.9);
+    padding: 8px;
+  }
+  .lightbox-email-scroll img {
+    width: 100%;
+    max-width: 100%;
+    max-height: none;
+    height: auto;
+    display: block;
+    border-radius: 6px;
+    border: none;
   }
   .lightbox-video-wrap {
     width: min(420px, 88vw);
@@ -817,12 +928,12 @@
 
   /* ─── RESPONSIVE ─────────────────────────────────────────────────────── */
   @media (max-width: 1200px) {
-    .pieces-grid.col-compact { grid-template-columns: repeat(4, 1fr); }
+    .pieces-grid.col-compact, .pieces-grid.col-4 { grid-template-columns: repeat(4, 1fr); }
   }
   @media (max-width: 1024px) {
     #sobre { grid-template-columns: 260px 1fr; gap: 48px }
     #contact { grid-template-columns: 1fr; gap: 48px; }
-    .pieces-grid.col-compact { grid-template-columns: repeat(3, 1fr); }
+    .pieces-grid.col-compact, .pieces-grid.col-4 { grid-template-columns: repeat(3, 1fr); }
     .ab-grid { grid-template-columns: 1fr; }
     .ab-box.ab-triple { grid-column: span 1; }
   }
@@ -836,7 +947,7 @@
     #sobre { padding: 80px 20px; grid-template-columns: 1fr; gap: 40px }
     .sobre-photo { aspect-ratio: 3/2; max-width: 280px }
     .acc-panel { padding-left: 0; padding-right: 0; }
-    .pieces-grid, .pieces-grid.col-compact { grid-template-columns: repeat(2, 1fr); }
+    .pieces-grid, .pieces-grid.col-compact, .pieces-grid.col-4 { grid-template-columns: repeat(2, 1fr); }
     .carousel-grid-compact { grid-template-columns: 1fr; }
     .strat-row { grid-template-columns: 1fr }
     #skills { padding: 80px 20px }
@@ -849,7 +960,7 @@
     .nav-badge { display: none; }
     .hero h1 { font-size: 46px; }
     .trabalhos-stats-bar { grid-template-columns: 1fr 1fr; }
-    .pieces-grid, .pieces-grid.col-compact, .pieces-grid.col-2 { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+    .pieces-grid, .pieces-grid.col-compact, .pieces-grid.col-4, .pieces-grid.col-2 { grid-template-columns: repeat(2, 1fr); gap: 10px; }
     .ab-box.ab-triple .ab-variants { grid-template-columns: 1fr; }
     .acc-name { font-size: 26px }
   }
@@ -857,7 +968,7 @@
 </head>
 <body>
 
-<!-- LIGHTBOX MODAL ÚNICO (IMAGENS E VÍDEOS EXPANDIDOS) -->
+<!-- LIGHTBOX MODAL ÚNICO (IMAGENS, E-MAILS COMPRIDOS E VÍDEOS EXPANDIDOS) -->
 <div class="lightbox" id="lightbox" onclick="closeLightbox(event)">
   <button class="lightbox-close" onclick="closeLightbox(event)" aria-label="Fechar">&times;</button>
   <div class="lightbox-content" id="lightbox-body"></div>
@@ -941,7 +1052,7 @@
   <div class="acc-list">
 
     <!-- 01 META ADS -->
-    <div class="acc-item open" id="acc-meta">
+    <div class="acc-item" id="acc-meta">
       <button class="acc-head" onclick="toggleAcc('meta')">
         <div class="acc-num">01</div>
         <div class="acc-center">
@@ -1228,65 +1339,76 @@
       </div>
     </div>
 
-    <!-- 05 EMAIL & WHATSAPP -->
-    <div class="acc-item" id="acc-email">
+    <!-- 05 EMAIL & WHATSAPP (ABERTA PARA VISUALIZAÇÃO IMEDIATA DOS 31 E-MAILS) -->
+    <div class="acc-item open" id="acc-email">
       <button class="acc-head" onclick="toggleAcc('email')">
         <div class="acc-num">05</div>
         <div class="acc-center">
           <div class="acc-name">Email &amp; WhatsApp</div>
-          <div class="acc-sub">Sequências de lançamento, réguas de onboarding e campanhas de retenção</div>
+          <div class="acc-sub">Réguas de cadastro B2B, conversão de Free Trial (SaaS), lançamentos de produtos e mensageria</div>
         </div>
         <div class="acc-indicator">+</div>
       </button>
-      <div class="acc-panel">
-        <p class="panel-desc">Copies para canal direto — desde sequências de email de lançamento (7 emails de pré-aquecimento a fechamento) até réguas B2B de onboarding com 30% de taxa de abertura e cadências de WhatsApp para decisores financeiros.</p>
+      <div class="acc-panel" id="email-panel-top">
+        <p class="panel-desc">Estratégia e execução de copies para canais diretos de CRM — cobrindo jornadas completas de onboarding B2B, conversão de usuários em período de teste gratuito (Free Trial para assinatura paga), bifurcações comportamentais (abertura vs. clique), triggers por atributo e campanhas de relacionamento.</p>
+        
         <div class="panel-metrics">
-          <div class="pmet"><div class="pmet-val">30%</div><div class="pmet-label">Taxa abertura</div></div>
-          <div class="pmet"><div class="pmet-val">3 dias</div><div class="pmet-label">SLA (era 15)</div></div>
+          <div class="pmet"><div class="pmet-val">31</div><div class="pmet-label">Templates de E-mail</div></div>
+          <div class="pmet"><div class="pmet-val">30%</div><div class="pmet-label">Taxa média abertura</div></div>
+          <div class="pmet"><div class="pmet-val">3 dias</div><div class="pmet-label">SLA Ativação (era 15)</div></div>
           <div class="pmet"><div class="pmet-val">+50%</div><div class="pmet-label">Conversão no funil</div></div>
         </div>
-        <div class="pieces-label">Peças</div>
-        <div class="pieces-grid">
-          <div class="piece">
-            <div class="piece-thumb piece-ph">
-              <div class="piece-ph-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
-            </div>
-            <div class="piece-body">
-              <span class="piece-tag">Sequência de Lançamento</span>
-              <div class="piece-title">7 emails — "Do Zero aos 300k"</div>
-              <div class="piece-desc">Pré-aquecimento (3) + abertura + urgência (2) + último dia. Subject lines + copy.</div>
-            </div>
-          </div>
-          <div class="piece">
-            <div class="piece-thumb piece-ph">
-              <div class="piece-ph-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
-            </div>
-            <div class="piece-body">
-              <span class="piece-tag">Onboarding B2B · Braze</span>
-              <div class="piece-title">Régua Monkey Tech — 5 touchpoints</div>
-              <div class="piece-desc">Ativação em 3 dias. SLA 15→3 dias. 30% de taxa de abertura.</div>
+
+        <!-- BARRA DE SELEÇÃO DE CANAL (EMAIL VS WHATSAPP) -->
+        <div class="format-switcher-bar">
+          <div class="format-switcher-left">
+            <span class="format-label">Escolha o canal:</span>
+            <div class="sub-tabs">
+              <button type="button" class="sub-tab-btn active" id="btn-email-tab-emails" onclick="switchEmailTab('emails')">
+                01. E-mail Marketing &amp; Réguas de CRM <span class="tab-count">31 Peças</span>
+              </button>
+              <button type="button" class="sub-tab-btn" id="btn-email-tab-whatsapp" onclick="switchEmailTab('whatsapp')">
+                02. Sequências de WhatsApp <span class="tab-count">Em breve</span>
+              </button>
             </div>
           </div>
-          <div class="piece">
-            <div class="piece-thumb piece-ph">
-              <div class="piece-ph-icon"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M11.999 2C6.477 2 2 6.477 2 12c0 1.89.525 3.66 1.438 5.168L2.046 22l4.962-1.302A9.956 9.956 0 0011.999 22c5.523 0 10-4.477 10-10S17.522 2 11.999 2zm0 18a7.958 7.958 0 01-4.076-1.118l-.292-.174-3.027.794.808-2.951-.19-.303A7.944 7.944 0 014 12c0-4.411 3.589-8 8-8 4.412 0 8 3.589 8 8s-3.588 8-7.999 8h-.002z"/></svg></div>
+          <button type="button" class="format-next-hint" id="email-top-hint" onclick="switchEmailTab('whatsapp')">
+            Ver WhatsApp &rarr;
+          </button>
+        </div>
+
+        <!-- ABA 1: 31 E-MAILS AGRUPADOS EM 3 BLOCOS ESTRATÉGICOS -->
+        <div id="email-tab-emails" class="sub-tab-content active">
+          <div class="pieces-label"><span>●</span> Clique em qualquer template de e-mail para abrir em modo de leitura completa (com rolagem vertical)</div>
+          <div id="email-galleries-container"></div>
+        </div>
+
+        <!-- ABA 2: WHATSAPP (PREPARADA PARA RECEBER OS TEXTOS DO DOC) -->
+        <div id="email-tab-whatsapp" class="sub-tab-content">
+          <div class="email-seq-box">
+            <div class="email-seq-header">
+              <div class="email-seq-title-group">
+                <div class="email-seq-name">Cadências de WhatsApp &amp; Mensageria Direta <span>Mockups Interativos</span></div>
+                <div class="email-seq-desc">Estrutura pronta para receber os fluxos de mensagens em formato de tela de smartphone nativa.</div>
+              </div>
             </div>
-            <div class="piece-body">
-              <span class="piece-tag">WhatsApp · CRM B2B</span>
-              <div class="piece-title">Cadência para decisores financeiros</div>
-              <div class="piece-desc">Sequência de WhatsApp para CFOs e gestores. Tom direto, sem jargão, foco em benefício.</div>
-            </div>
+          </div>
+          <div class="sub-tab-footer">
+            <button type="button" class="sub-tab-next-btn" onclick="switchEmailTab('emails', true)">
+              &larr; Voltar para os 31 Templates de E-mail
+            </button>
           </div>
         </div>
+
       </div>
     </div>
 
-    <!-- 06 PLANEJAMENTO & CRM -->
+    <!-- 06 ESTRATÉGIA & CRM (RENOMEADA CONFORME SOLICITADO) -->
     <div class="acc-item" id="acc-crm">
       <button class="acc-head" onclick="toggleAcc('crm')">
         <div class="acc-num">06</div>
         <div class="acc-center">
-          <div class="acc-name">Planejamento &amp; CRM</div>
+          <div class="acc-name">Estratégia &amp; CRM</div>
           <div class="acc-sub">Planos de marketing, jornadas no Braze e estratégia de lifecycle</div>
         </div>
         <div class="acc-indicator">+</div>
@@ -1633,9 +1755,7 @@
 
 <script>
 // ─── 1. DADOS CONSOLIDADOS DE META ADS ─────────────────────────────────
-// 26 Imagens Únicas (6 Destaques + 20 na sequência; arquivos 2, 6, 7 e 17 movidos para Testes A/B)
 const staticAdsData = [
-  // Bloco 1: Destaques no Topo (6 peças)
   { num: 12, tag: 'Destaque · Perpétuo', title: 'Gatilho da Especificidade & Inimigo Comum (Convênios)', desc: 'Metáfora visual de "plano" atacando a maior dor do dentista, com CTA direto para Consultoria Gratuita.' },
   { num: 15, tag: 'Destaque · Perpétuo', title: 'Gatilho da Autoridade & Prova Concreta (Dados)', desc: 'Subverte o mito de sazonalidade do setor com dados visuais e convida para diagnóstico em Consultoria Gratuita.' },
   { num: 16, tag: 'Destaque · Lançamento', title: 'Gatilho da Prova Social & Curiosidade (Estudo de Caso)', desc: 'Ancoragem em resultado real de alto ticket para gerar curiosidade e captação de leads para Aula Gratuita.' },
@@ -1643,7 +1763,6 @@ const staticAdsData = [
   { num: 26, tag: 'Destaque · Evento / Lançamento', title: 'Gatilho da Curiosidade & Proibido (Censura Nativa)', desc: 'Mimetiza o aviso de conteúdo sensível do Instagram para maximizar o CTR rumo ao evento SucessOdonto.' },
   { num: 30, tag: 'Destaque · Lançamento', title: 'Gatilho da Especificidade & Simplicidade (Apple Notes)', desc: 'Formato orgânico que neutraliza a objeção "mesmo que não seja sua especialidade" para inscrição na Aula Online.' },
 
-  // Bloco 2: Sequência Principal (1 a 11, exceto 2, 6 e 7)
   { num: 1,  tag: 'Isca Digital · Topo de Funil', title: 'Gatilho da Reciprocidade & Especificidade (+40%)', desc: 'Oferta de ferramenta prática validada nas clínicas próprias para aquisição de leads com baixo CPL.' },
   { num: 3,  tag: 'Perpétuo · Conversão Direta', title: 'Gatilho da Prova Social & Autoridade (Advertorial)', desc: 'Emula manchete jornalística com headline provocativa e validação de 3.000 clínicas para clique no link.' },
   { num: 4,  tag: 'Oferta Direta · Sazonal', title: 'Gatilho da Escassez & Contraste de Valor (Black Friday)', desc: 'Ancoragem definitiva ("Você nunca mais vai precisar comprar outro curso") para conversão direta na Pós/Mentoria.' },
@@ -1653,7 +1772,6 @@ const staticAdsData = [
   { num: 10, tag: 'Perpétuo · Consultoria', title: 'Gatilho da Aversão à Perda & Urgência Financeira (PAS)', desc: 'Visualização literal do prejuízo invisível na precificação para converter leads em sessão de diagnóstico.' },
   { num: 11, tag: 'Oferta Direta · Black Friday', title: 'Gatilho da Ancoragem de Preço & Contraste de Valor', desc: 'Desarma a objeção financeira logo na headline ao fracionar o ticket de uma pós-graduação reconhecida pelo MEC.' },
 
-  // Bloco 3: Sequência Complementar (13 a 29, exceto 17)
   { num: 13, tag: 'Lançamento · Captação', title: 'Gatilho do Segredo & Curiosidade (Mecanismo Único)', desc: 'Promete revelar o indicador oculto das clínicas milionárias em uma Aula 100% Gratuita.' },
   { num: 14, tag: 'Lançamento · Captação', title: 'Gatilho da Ambição & Especificidade (90 Implantes)', desc: 'Conecta o nicho mais lucrativo do setor a um plano prático revelado em evento online gratuito.' },
   { num: 19, tag: 'Perpétuo · Consultoria', title: 'Gatilho da Dor vs. Prazer (Quebra de Estagnação)', desc: 'Pergunta provocativa que captura dentistas estagnados no meio de funil com oferta de consultoria gratuita.' },
@@ -1668,7 +1786,6 @@ const staticAdsData = [
   { num: 29, tag: 'Lançamento · Captação', title: 'Gatilho da Antecipação & Especificidade (Aula Ao Vivo)', desc: 'Versão editorial clara destacando o cronograma da aula gratuita para maximizar inscrições.' }
 ];
 
-// 10 Grupos de Teste A/B (Com #01 e #10 trocados para priorizar os Testes de Copy/Headline no topo)
 const abTestsData = [
   {
     id: 1,
@@ -1763,7 +1880,6 @@ const abTestsData = [
   }
 ];
 
-// 12 Vídeos Únicos com Descrições Baseadas nas Transcrições Reais
 const videoAdsData = [
   {
     id: 'tfKqih05J_8',
@@ -1851,9 +1967,122 @@ const videoAdsData = [
   }
 ];
 
-// ─── 2. RENDERIZAÇÃO AUTOMÁTICA DAS GRADES ──────────────────────────────
+// ─── 2. DADOS DOS 31 TEMPLATES DE E-MAIL MARKETING B2B ─────────────────
+const emailBlocksData = [
+  {
+    eyebrow: '⚡ Bloco 01 · Lançamento SaaS, Go-To-Market & Educação Regulatória',
+    title: 'Lançamentos de Produto, Free Trial & Mudança de Mercado',
+    sub: 'Jornadas completas de lançamento de novos produtos B2B: da aquisição via teste gratuito (Free Trial) até a conversão em assinatura paga, webinars de lançamento e educação regulatória.',
+    sequences: [
+      {
+        name: 'Cash Control — Lançamento SaaS & Conversão de Free Trial',
+        badge: '5 E-mails · Trial to Paid',
+        meta: 'Planejamento & Copy End-to-End',
+        desc: 'Estratégia completa de lançamento da nova plataforma de gestão financeira: disparo de aquisição para a base principal oferecendo teste gratuito + régua de 4 touchpoints de Trial para converter usuários em assinantes pagos.',
+        cols: 'col-compact',
+        items: [
+          { file: 'img/email_caco_cadastro', step: '01 · Aquisição Base', tag: 'Convite Free Trial', title: 'Dor das Planilhas & Convite para Teste Gratuito', desc: 'Enviado para toda a base da plataforma principal atacando o tempo perdido com planilhas manuais e oferecendo acesso gratuito ao Cash Control.' },
+          { file: 'img/email_caco_trial_1',  step: '02 · Trial #01',      tag: 'Ativação de Recursos', title: 'Exploração de Funcionalidades (Aha! Moment)', desc: 'Disparado nos primeiros dias de teste para incentivar o uso de relatórios em 1 clique, projeções automáticas e visão de fluxo de caixa.' },
+          { file: 'img/email_caco_trial_2',  step: '03 · Trial #02',      tag: 'Ancoragem de Valor', title: 'Tangibilização de ROI ("Menos de R$ 6 por dia")', desc: 'Ancora o valor da assinatura em um custo diário irrisório frente à previsibilidade e economia de tempo geradas para o negócio.' },
+          { file: 'img/email_caco_trial_3',  step: '04 · Trial #03',      tag: 'Pré-Expiração', title: 'Alerta de Fim do Teste & Continuidade', desc: 'Avisa que o período gratuito está chegando ao fim e reforça a importância de manter a rotina financeira sem interrupções.' },
+          { file: 'img/email_caco_trial_4',  step: '05 · Trial #04',      tag: 'Último Dia · Escassez', title: 'Gatilho da Aversão à Perda (Checklist de Perdas)', desc: 'Disparo de último dia listando visualmente (✕) todos os benefícios e controles que a empresa perderá caso não assine o plano.' }
+        ]
+      },
+      {
+        name: 'Supplier Trust — Lançamento de Produto & Teste A/B de Argumentação',
+        badge: '3 E-mails · Go-To-Market',
+        meta: 'Captação Live + Teste A/B',
+        desc: 'Campanha de lançamento de nova solução B2B dividida em duas fases: captação para a live oficial de estreia seguida de um experimento A/B para validar o argumento de maior conversão.',
+        cols: 'col-3',
+        items: [
+          { file: 'img/email_suppliertrust_1',  step: 'Fase 1 · Live',      tag: 'Convite Lançamento', title: 'Captação para Webinar Oficial de Estreia', desc: 'Apresenta a data oficial (15 de Agosto) e os 3 pilares de valor da solução para maximizar inscritos na transmissão.' },
+          { file: 'img/email_supplietrust_2A',  step: 'Fase 2 · Versão A',  tag: 'Teste A/B · Vídeo',  title: 'Abordagem Narrativa + Vídeo Oficial', desc: 'Variação A do teste focada em contextualização de mercado e convite visual para assistir à gravação do webinar de lançamento.' },
+          { file: 'img/email_suppliertrust_2B', step: 'Fase 2 · Versão B',  tag: 'Teste A/B · Escaneável', title: 'Abordagem Funcional ("Como Funciona?")', desc: 'Variação B estruturada em blocos explicativos diretos para decisores pragmáticos que preferem leitura rápida sem vídeo.' }
+        ]
+      },
+      {
+        name: 'Duplicata Escritural — Série Educativa Pré-Regulamentação',
+        badge: '2 E-mails · Newsletter B2B',
+        meta: 'Educação & Antecipação',
+        desc: 'Campanha criada antes da regulamentação da Duplicata Escritural no Brasil para informar como a empresa se adaptaria ao novo cenário e incentivar o cadastro antecipado na nova plataforma.',
+        cols: 'col-2',
+        items: [
+          { file: 'img/email_duplicata.1', step: 'Edição #01', tag: 'Contextualização Regulatória', title: '"A Duplicata Escritural chegou para ficar"', desc: 'Newsletter educativa explicando o impacto da nova norma e o que muda na rotina financeira das empresas brasileiras.' },
+          { file: 'img/email_duplicata.2', step: 'Edição #02', tag: 'Adaptação & Cadastro', title: 'Posicionamento de Plataforma & Convite', desc: 'Mostra na prática como a tecnologia da empresa se antecipa à regra e conduz o leitor a se cadastrar na nova plataforma.' }
+        ]
+      }
+    ],
+    solos: [
+      { file: 'img/email_monkey_exclusive', step: 'Lançamento Autoral', tag: 'Go-To-Market · Produto', title: 'Monkey Exclusive ("Você pediu e a gente criou")', desc: 'Primeiro e-mail da estratégia de lançamento desenhada ponta a ponta, combinando gráfico comparativo de benefícios e vídeo de apresentação.' },
+      { file: 'img/email_evento_monkeyshe', step: 'Evento Corporativo', tag: 'Divulgação de Evento', title: 'Campanha Institucional — Evento MonkeyShe', desc: 'Peça de divulgação de evento proprietário destacando as painelistas convidadas, agenda e link direto de participação.' }
+    ]
+  },
+  {
+    eyebrow: '🔄 Bloco 02 · Réguas de Cadastro, Onboarding & Segmentação Comportamental',
+    title: 'Programas Âncoras B2B (Copel, Ambev & Döhler)',
+    sub: 'Sequências automatizadas para aquisição de fornecedores nos programas de antecipação de recebíveis, incluindo ramificações por comportamento (abertura vs. clique) e disparos por atributos da conta.',
+    sequences: [
+      {
+        name: 'Programa Copel — Régua de Cadastro + Ramificações de Engajamento & Atributos',
+        badge: '8 E-mails · Jornada Completa',
+        meta: 'Cadência 1–4 + Segmentação 5A/5B + Triggers',
+        desc: 'Fluxo completo de aquisição de fornecedores Copel: 4 disparos lineares de cadastro, bifurcação comportamental no 5º envio (quem abriu vs. quem clicou), trigger de notas disponíveis e disparo para base comum.',
+        cols: 'col-4',
+        items: [
+          { file: 'img/email_Copel_1',          step: 'Touchpoint #01', tag: 'Abertura de Régua', title: 'Proposta de Valor & Liquidez Imediata', desc: 'Primeiro contato apresentando o programa oficial da Copel para antecipação de notas fiscais com taxas atrativas.' },
+          { file: 'img/email_copel_2',          step: 'Touchpoint #02', tag: 'Educação do Produto', title: 'Funcionamento da Plataforma Oficial', desc: 'Explica a simplicidade operacional e a segurança de antecipar recebíveis diretamente no ecossistema da Copel.' },
+          { file: 'img/email_copel_3',          step: 'Touchpoint #03', tag: 'Quebra de Objeção', title: 'Fluxo de Caixa sem Endividamento Bancário', desc: 'Mostra por que antecipar notas emitidas é mais inteligente e econômico do que recorrer a empréstimos tradicionais.' },
+          { file: 'img/email_copel_4',          step: 'Touchpoint #04', tag: 'Consolidação', title: 'Reforço de Benefícios para Indecisos', desc: 'Quarto toque da régua linear sintetizando as vantagens financeiras antes da bifurcação comportamental.' },
+          { file: 'img/email_copel_5A',         step: 'Touchpoint #05 · A', tag: 'Segmento: Abriu Anteriores', title: 'Reengajamento para Interesse Latente', desc: 'Enviado exclusivamente para quem abriu os e-mails 1 a 4 mas ainda não clicou, aprofundando o argumento de oportunidade.' },
+          { file: 'img/email_copel_5b',         step: 'Touchpoint #05 · B', tag: 'Segmento: Clicou Anteriores', title: 'Fechamento de Alta Intenção ("Falta só um passo")', desc: 'Enviado exclusivamente para quem já clicou nos e-mails anteriores, focado em remover o último atrito para concluir o cadastro.' },
+          { file: 'img/email_copel_ativação',   step: 'Trigger · Ativação', tag: 'Atributo: Notas Disponíveis', title: '"Você já tem NFs disponíveis para antecipar"', desc: 'Disparo transacional/comportamental exclusivo para usuários cadastrados que possuem notas liberadas para operação imediata.' },
+          { file: 'img/email_copel_base comum', step: 'Cross-Program',      tag: 'Segmento: Base Comum', title: 'Aquisição em Fornecedores Já Cadastrados', desc: 'Comunicação segmentada para usuários que já operam em programas de outros clientes âncoras dentro da plataforma.' }
+        ]
+      },
+      {
+        name: 'Programa Ambev (BEES Bank) — Sequência de Cadastro na Plataforma',
+        badge: '3 E-mails · Onboarding B2B',
+        meta: 'Cadência de Aquisição',
+        desc: 'Sequência estruturada em 3 touchpoints para converter fornecedores do ecossistema Ambev em usuários cadastrados na plataforma.',
+        cols: 'col-3',
+        items: [
+          { file: 'img/email_ambev_1', step: 'Touchpoint #01', tag: 'Convite Oficial', title: 'Apresentação da Parceria & Benefícios Diretos', desc: 'Introduz a facilidade de antecipar pagamentos junto à Ambev com pagamento digital em D+0, sem IOF e 100% seguro.' },
+          { file: 'img/email_ambev_2', step: 'Touchpoint #02', tag: 'Follow-up Visual', title: '"Passando para te lembrar..." (3 Ícones)', desc: 'Segundo toque escaneável reduzindo a percepção de esforço através de 3 pilares visuais de adesão rápida.' },
+          { file: 'img/email_ambev_3', step: 'Touchpoint #03', tag: 'Projeção Futura', title: '"Imagine o que você faria com dinheiro em caixa hoje..."', desc: 'Usa o gatilho da imaginação/projeção (manter operação rodando, investir no crescimento) para destravar o cadastro.' }
+        ]
+      },
+      {
+        name: 'Programa Döhler — Régua de Cadastro + Disparo Segmentado Factoring',
+        badge: '4 E-mails · Aquisição & Lista Quente',
+        meta: 'Cadência 1–3 + Segmento Factoring',
+        desc: 'Três disparos de cadastro geral combinados a um 4º e-mail específico para uma lista quente de fornecedores que já antecipavam via Factoring.',
+        cols: 'col-4',
+        items: [
+          { file: 'img/email_dohler_1',         step: 'Touchpoint #01', tag: 'Abertura de Cadastro', title: 'Boas-Vindas ao Programa Oficial Döhler', desc: 'Primeiro disparo apresentando a nova solução de antecipação de recebíveis para a cadeia de fornecedores Döhler.' },
+          { file: 'img/email_dohler_2',         step: 'Touchpoint #02', tag: 'Educação de Vantagens', title: 'Diferenciais Competitivos da Plataforma', desc: 'Detalha a agilidade operacional e a transparência das taxas em comparação às alternativas do mercado.' },
+          { file: 'img/email_dohler_3',         step: 'Touchpoint #03', tag: 'Leitura Escaneável', title: '"Três motivos para cadastrar quando e como quiser"', desc: 'Síntese objetiva em bullet points para converter fornecedores no fechamento da régua de cadastro.' },
+          { file: 'img/email_dohler_factoring', step: 'Lista Quente',   tag: 'Segmento: Clientes Factoring', title: 'Argumento Específico para Público de Factoring', desc: 'Copy desenhada para um público mais consciente que já antecipava via Factoring, contrastando taxas e praticidade.' }
+        ]
+      }
+    ],
+    solos: []
+  },
+  {
+    eyebrow: '🎯 Bloco 03 · Relacionamento (Farming), Atributos de CRM & Aquisição Solo',
+    title: 'Campanhas Táticas, Humanização Comercial & Triggers de Cadastro',
+    sub: 'Iniciativas autorais para destravar indicadores do time de relacionamento (quebra de desconfiança/fraude), automações de documentos pendentes e disparos nominais por carteira.',
+    sequences: [],
+    solos: [
+      { file: 'img/email_farmers_Carla',  step: 'Projeto Autoral',     tag: 'Relacionamento · Anti-Fraude', title: '"Conheça a Carla" — Humanização com Vídeo Roteirizado', desc: 'Campanha idealizada e roteirizada (vídeo + e-mail) para quebrar o medo de golpes e provar aos clientes que o contato era feito por especialistas reais, e não robôs — elevando os indicadores do time de Farming.' },
+      { file: 'img/email_pre_check',      step: 'Trigger de Atributo', tag: 'Automação · Doc Pendente', title: 'Pré-Check ("Falta pouco para concluir seu cadastro!")', desc: 'E-mail automatizado vinculado ao atributo de documentação pendente no CRM, guiando o usuário passo a passo para enviar os arquivos restantes.' },
+      { file: 'img/email_sotreq_farming', step: 'Outreach Nominal',    tag: 'Farming · Carteira Sotreq', title: 'Comunicação Pessoal em Nome da Equipe Comercial', desc: 'Template com abordagem consultiva e nominal enviado em nome dos gerentes de relacionamento para contas específicas da carteira Sotreq.' },
+      { file: 'img/email_jsl',            step: 'Aquisição Solo',      tag: 'Cadastro B2B · JSL', title: '"Como antecipar Notas Fiscais pode impulsionar sua empresa?"', desc: 'Disparo solo de cadastro com argumentação focada em crescimento empresarial, estruturado em blocos de "O que você precisa" e "E depois?".' }
+    ]
+  }
+];
+
+// ─── 3. RENDERIZAÇÃO AUTOMÁTICA DAS GRADES ──────────────────────────────
 function renderMetaGalleries() {
-  // Renderizar 26 Imagens Estáticas
   const staticGrid = document.getElementById('meta-static-grid');
   staticGrid.innerHTML = staticAdsData.map((item, idx) => {
     const numOrder = String(idx + 1).padStart(2, '0');
@@ -1872,7 +2101,6 @@ function renderMetaGalleries() {
     `;
   }).join('');
 
-  // Renderizar 10 Testes A/B na mesma sub-seção
   const abGrid = document.getElementById('meta-ab-grid');
   abGrid.innerHTML = abTestsData.map(test => {
     const numStr = String(test.id).padStart(2, '0');
@@ -1903,7 +2131,6 @@ function renderMetaGalleries() {
     `;
   }).join('');
 
-  // Renderizar 12 Vídeos Únicos
   const videosGrid = document.getElementById('meta-videos-grid');
   videosGrid.innerHTML = videoAdsData.map(v => `
     <div class="piece" onclick="openVideoModal('${v.id}', ${v.vertical})">
@@ -1924,15 +2151,83 @@ function renderMetaGalleries() {
   `).join('');
 }
 
-// ─── 3. CARREGADOR INTELIGENTE DE EXTENSÕES (.jpg, .png, .jpeg, .webp) ──
+function renderEmailCard(item) {
+  return `
+    <div class="piece" onclick="openEmailModal(this.querySelector('img').src)">
+      <div class="piece-thumb email-thumb">
+        <span class="step-pill">${item.step}</span>
+        <img data-base="${item.file}" alt="${item.title}">
+        <span class="zoom-badge">🔍 Ler E-mail</span>
+      </div>
+      <div class="piece-body">
+        <span class="piece-tag">${item.tag}</span>
+        <div class="piece-title">${item.title}</div>
+        <div class="piece-desc">${item.desc}</div>
+      </div>
+    </div>
+  `;
+}
+
+function renderEmailGalleries() {
+  const container = document.getElementById('email-galleries-container');
+  container.innerHTML = emailBlocksData.map(block => {
+    const seqHtml = block.sequences.map(seq => `
+      <div class="email-seq-box">
+        <div class="email-seq-header">
+          <div class="email-seq-title-group">
+            <div class="email-seq-name">${seq.name} <span>${seq.badge}</span></div>
+            <div class="email-seq-desc">${seq.desc}</div>
+          </div>
+          <div class="email-seq-meta">${seq.meta}</div>
+        </div>
+        <div class="pieces-grid ${seq.cols}">
+          ${seq.items.map(renderEmailCard).join('')}
+        </div>
+      </div>
+    `).join('');
+
+    const solosHtml = block.solos.length > 0 ? `
+      <div class="pieces-grid ${block.solos.length === 2 ? 'col-2' : 'col-4'}" style="margin-top: 16px;">
+        ${block.solos.map(renderEmailCard).join('')}
+      </div>
+    ` : '';
+
+    return `
+      <div class="email-block-divider">
+        <div class="email-block-head">
+          <span class="email-block-eyebrow">${block.eyebrow}</span>
+          <div class="email-block-title">${block.title}</div>
+          <p class="email-block-sub">${block.sub}</p>
+        </div>
+        ${seqHtml}
+        ${solosHtml}
+      </div>
+    `;
+  }).join('');
+}
+
+// ─── 4. CARREGADOR INTELIGENTE DE EXTENSÕES E VARIAÇÕES DE NOME ─────────
 function initSmartImages() {
-  const exts = ['.jpg', '.png', '.jpeg', '.webp', '.JPG', '.PNG'];
+  const exts = ['.png', '.jpg', '.jpeg', '.webp', '.PNG', '.JPG'];
   document.querySelectorAll('img[data-base]').forEach(img => {
-    const base = img.getAttribute('data-base');
+    const rawBase = img.getAttribute('data-base');
+    // Gera alternativas de nome caso haja diferença de maiúscula/minúscula, espaço/underline ou typo
+    const baseVariants = [rawBase];
+    if (rawBase.toLowerCase() !== rawBase) baseVariants.push(rawBase.toLowerCase());
+    if (rawBase.includes(' ')) baseVariants.push(rawBase.replace(/ /g, '_'));
+    if (rawBase.includes('_')) baseVariants.push(rawBase.replace(/_/g, ' '));
+    if (rawBase.includes('supplietrust')) baseVariants.push(rawBase.replace('supplietrust', 'suppliertrust'));
+    if (rawBase.includes('suppliertrust')) baseVariants.push(rawBase.replace('suppliertrust', 'supplietrust'));
+
+    const candidates = [];
+    baseVariants.forEach(b => {
+      exts.forEach(e => candidates.push(b + e));
+    });
+
     let idx = 0;
     function tryNext() {
-      if (idx >= exts.length) return;
-      img.src = base + exts[idx];
+      if (idx >= candidates.length) return;
+      img.src = candidates[idx];
       idx++;
     }
     img.onerror = tryNext;
@@ -1940,15 +2235,16 @@ function initSmartImages() {
   });
 }
 
-// ─── 4. NAVEGAÇÃO DE SANFONAS, ABAS, CARROSSEL E LIGHTBOX ──────────────
-let openId = 'meta';
+// ─── 5. NAVEGAÇÃO DE SANFONAS, ABAS, CARROSSEL E LIGHTBOX ──────────────
+let openId = 'email';
 
 function toggleAcc(id) {
   const item = document.getElementById('acc-' + id);
   const isOpen = item.classList.contains('open');
 
   if (openId && openId !== id) {
-    document.getElementById('acc-' + openId).classList.remove('open');
+    const prev = document.getElementById('acc-' + openId);
+    if (prev) prev.classList.remove('open');
   }
 
   if (!isOpen) {
@@ -1985,6 +2281,28 @@ function switchMetaTab(tabName, shouldScroll) {
   }
 }
 
+function switchEmailTab(tabName, shouldScroll) {
+  const panel = document.getElementById('acc-email');
+  panel.querySelectorAll('.sub-tab-btn').forEach(btn => btn.classList.remove('active'));
+  panel.querySelectorAll('.sub-tab-content').forEach(content => content.classList.remove('active'));
+
+  document.getElementById('btn-email-tab-' + tabName).classList.add('active');
+  document.getElementById('email-tab-' + tabName).classList.add('active');
+
+  const hintBtn = document.getElementById('email-top-hint');
+  if (tabName === 'emails') {
+    hintBtn.innerHTML = 'Ver WhatsApp &rarr;';
+    hintBtn.setAttribute('onclick', "switchEmailTab('whatsapp')");
+  } else {
+    hintBtn.innerHTML = 'Voltar para E-mails (31) &uarr;';
+    hintBtn.setAttribute('onclick', "switchEmailTab('emails')");
+  }
+
+  if (shouldScroll) {
+    document.getElementById('email-panel-top').scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+}
+
 function moveSlide(carId, direction) {
   const box = document.getElementById('carousel-' + carId);
   const track = box.querySelector('.carousel-track');
@@ -2008,6 +2326,14 @@ function openImageModal(src) {
   lb.classList.add('open');
 }
 
+function openEmailModal(src) {
+  if (!src) return;
+  const lb = document.getElementById('lightbox');
+  const body = document.getElementById('lightbox-body');
+  body.innerHTML = '<div class="lightbox-email-scroll"><img src="' + src + '" alt="Template de E-mail Completo"></div>';
+  lb.classList.add('open');
+}
+
 function openVideoModal(videoId, isVertical) {
   const lb = document.getElementById('lightbox');
   const body = document.getElementById('lightbox-body');
@@ -2017,7 +2343,7 @@ function openVideoModal(videoId, isVertical) {
 }
 
 function closeLightbox(e) {
-  if (e && e.target.tagName === 'IMG') return;
+  if (e && (e.target.tagName === 'IMG' || e.target.classList.contains('lightbox-email-scroll'))) return;
   const lb = document.getElementById('lightbox');
   const body = document.getElementById('lightbox-body');
   lb.classList.remove('open');
@@ -2026,6 +2352,7 @@ function closeLightbox(e) {
 
 document.addEventListener('DOMContentLoaded', () => {
   renderMetaGalleries();
+  renderEmailGalleries();
   initSmartImages();
 });
 </script>
