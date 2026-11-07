@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Newsletter – Duplicata Escritural</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    body{
+      margin:0;
+      padding:0;
+      background: linear-gradient(180deg, #0D1724 0%, #014B98 40%, #0CBEEB 100%);
+      font-family:'DM Sans', Arial, Helvetica, sans-serif;
+    }
+    .newsletter-wrapper{
+      max-width:700px;
+      margin:0 auto 40px auto;
+    }
+
+    /* ====== CONTAINER PRINCIPAL ====== */
+    .content{
+      background:#0C1F35;
+      margin:34px 18px 22px;
+      padding:44px 34px 46px;
+      color:#F6FCFF;
+      border-radius:20px;
+      box-shadow:0 12px 34px rgba(0,0,0,0.38);
+    }
+
+    /* ====== HERO (headline/subheadline com mais destaque) ====== */
+    .hero{
+      background:
+        radial-gradient(circle at 15% 20%, rgba(255,255,255,0.10) 0, transparent 55%),
+        radial-gradient(circle at 90% 10%, rgba(12,190,235,0.14) 0, transparent 55%),
+        linear-gradient(135deg, rgba(2,115,232,0.28) 0%, rgba(12,190,235,0.12) 100%);
+      border:1px solid #1E3A5C;
+      border-radius:18px;
+      padding:28px 22px 24px;
+      box-shadow:0 10px 26px rgba(0,0,0,0.28);
+      margin:0 0 28px 0;
+      text-align:center;
+    }
+    .hero-title{
+      margin:0 0 10px 0;
+      font-size:34px;
+      line-height:1.15;
+      font-weight:800;
+      letter-spacing:0.01em;
+      text-shadow:0 2px 14px rgba(0,0,0,0.45);
+      color:#FFFFFF;
+    }
+    .hero-subtitle{
+      margin:0;
+      font-size:18px;
+      line-height:1.45;
+      color:#BCD6ED;
+      opacity:0.98;
+    }
+
+    .content p{
+      font-size:16px;
+      line-height:1.68;
+      margin:0 0 14px 0;
+      color:#F6FCFF;
+    }
+
+    .divider{
+      height:1px;
+      background:#1E3A5C;
+      opacity:.95;
+      margin:26px 0 26px 0;
+    }
+
+    .mini-kicker{
+      display:inline-block;
+      font-size:12px;
+      letter-spacing:.10em;
+      text-transform:uppercase;
+      color:#BCD6ED;
+      opacity:.95;
+      margin:0 0 12px 0;
+    }
+
+    /* ====== CARDS EDITORIAIS ====== */
+    .editor-card{
+      background:#0B2A4A;
+      border:1px solid #1E3A5C;
+      border-radius:14px;
+      padding:22px 22px 20px;
+      box-shadow:0 8px 28px rgba(0,0,0,0.25);
+      margin:18px 0;
+    }
+    .editor-card h3{
+      margin:0 0 10px 0;
+      font-size:18px;
+      font-weight:700;
+      color:#F6FCFF;
+      text-align:left;
+    }
+
+    .bullet{
+      font-size:15px;
+      line-height:1.58;
+      margin:10px 0 0 0;
+      color:#F6FCFF;
+    }
+    .bullet .dot{
+      color:#0CBEEB;
+      font-weight:800;
+      margin-right:8px;
+    }
+
+    /* ====== NOTA FINAL ====== */
+    .note-band{
+      background:#0B2A4A;
+      border:1px solid #1E3A5C;
+      border-radius:14px;
+      padding:18px 18px;
+      margin:18px 0 0 0;
+      color:#BCD6ED;
+      font-size:14px;
+      line-height:1.6;
+      box-shadow:0 8px 26px rgba(0,0,0,0.32);
+    }
+
+    /* ====== BLOCO MONKEY (opcional, padrão do modelo) ====== */
+    .monkey-block{
+      background:#020915;
+      padding:30px 26px 34px;
+      border-radius:20px;
+      margin:0 18px 40px;
+      box-shadow:0 10px 30px rgba(0,0,0,0.38);
+      color:#F6FCFF;
+      font-size:14px;
+    }
+    .monkey-block-header{
+      display:flex;
+      align-items:center;
+      margin-bottom:12px;
+    }
+    .monkey-logo-footer{
+      width:32px;
+      height:auto;
+      display:inline-block;
+      margin-right:10px;
+    }
+    .monkey-block h3{
+      font-size:17px;
+      font-weight:600;
+      margin:0;
+    }
+    .monkey-block p{
+      margin:0 0 10px 0;
+      line-height:1.55;
+    }
+    .monkey-block a{
+      color:#0CBEEB;
+      font-weight:600;
+      text-decoration:none;
+    }
+
+    @media (max-width:600px){
+      .content{
+        margin:26px 12px 18px;
+        padding:32px 18px 36px;
+      }
+      .hero{padding:22px 16px 20px;}
+      .hero-title{font-size:28px;}
+      .hero-subtitle{font-size:16px;}
+      .monkey-block{margin:12px 12px 24px;}
+    }
+  </style>
+</head>
+
+<body>
+  <div class="newsletter-wrapper">
+
+    <!-- BLOCO PRINCIPAL -->
+    <div class="content">
+
+      <!-- HERO (sem banner Monkey Insights) -->
+      <div class="hero">
+        <h1 class="hero-title">A Duplicata Escritural chegou para ficar</h1>
+        <p class="hero-subtitle">Veja como vai funcionar essa novidade que está mudando o mercado</p>
+      </div>
+
+      <!-- TEXTO -->
+      <p>Olá,</p>
+
+      <!-- INTRO CONDENSADA (ajustada por copy) -->
+      <p>
+        O mercado de crédito B2B está passando por uma das mudanças mais importantes dos últimos anos: a duplicata escritural — um registro digital único, padronizado e rastreável por entidades autorizadas, que substitui o modelo antigo em que cada empresa gerenciava seus próprios controles.
+      </p>
+      <p>
+        Na prática, a duplicata escritural é a versão registrada da duplicata que nasce a partir da sua nota fiscal e é esse registro que passa a ser o que o mercado enxerga, valida e financia.
+      </p>
+
+      <div class="divider"></div>
+
+      <!-- SEÇÃO 1 -->
+      <span class="mini-kicker">O que muda</span>
+
+      <div class="editor-card">
+        <h3>O que a duplicata escritural muda para sua empresa?</h3>
+
+        <div class="bullet"><span class="dot">•</span>Com o registro escritural:</div>
+        <div class="bullet"><span class="dot">•</span>a duplicata se torna única e auditável,</div>
+        <div class="bullet"><span class="dot">•</span>o risco de divergência e duplicidade cai drasticamente,</div>
+        <div class="bullet"><span class="dot">•</span>financiadores ganham mais segurança para operar,</div>
+        <div class="bullet"><span class="dot">•</span>e o mercado passa a ter mais apetite de crédito, especialmente para médias empresas, que historicamente tiveram dificuldade de acessar condições mais competitivas.</div>
+      </div>
+
+      <p>
+        Para quem vive o dia a dia do caixa, isso significa menos ruído na hora de antecipar e tomadas de decisões financeiras mais previsíveis.
+      </p>
+
+      <div class="divider"></div>
+
+      <!-- SEÇÃO 2 -->
+      <span class="mini-kicker">Por que agora</span>
+
+      <div class="editor-card">
+        <h3>Por que você deveria olhar para isso AGORA?</h3>
+
+        <p style="margin:0 0 12px 0;">
+          A escrituralização já entrará em implementação no final de abril e, depois, passará a ser o padrão do mercado.
+        </p>
+
+        <p style="margin:0 0 12px 0;">
+          Quem se organiza primeiro entende melhor o fluxo, evita retrabalho e larga na frente quando esse formato se tornar dominante.
+        </p>
+
+        <p style="margin:0;">
+          E, como fornecedor Monkey, você já está um passo à frente, porque quando lançarmos a nova plataforma de gestão de duplicatas escriturais, você poderá administrar todo esse novo ecossistema, tendo uma visão completa e centralizada.
+        </p>
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- SEÇÃO 3 (sem botão / sem CTA) -->
+      <span class="mini-kicker">Próximos passos</span>
+
+      <div class="editor-card">
+        <h3>Atualizações da plataforma</h3>
+
+        <p style="margin:0 0 12px 0;">
+          Estamos finalizando os ajustes da plataforma e vamos liberar um período de teste grátis para fornecedores Monkey que fizerem o pré‑cadastro.
+        </p>
+
+        <p style="margin:0;">
+          Como você já possui cadastro ativo conosco, não vai precisar se cadastrar novamente.
+        </p>
+      </div>
+
+      <div class="note-band">
+        Fique ligado pois soltaremos uma série de comunicações sobre o tema nas próximas semanas para ajudar a sua empresa a se adaptar neste novo cenário.
+      </div>
+
+      <p style="margin-top:22px; margin-bottom:0;">
+        Abraço,<br>
+        Time Monkey
+      </p>
+
+    </div>
+
+    <!-- BLOCO MONKEY (opcional, padrão do modelo) -->
+    <div class="monkey-block">
+      <div class="monkey-block-header">
+        <img
+          src="https://braze-images.com/appboy/communication/assets/image_assets/images/683f5a42a6e7450065a9d8c1/original.png?1748982337"
+          alt="Logo Monkey"
+          class="monkey-logo-footer"
+        />
+        <h3>Sobre a Monkey</h3>
+      </div>
+
+      <p>
+        A Monkey é a plataforma financeira utilizada por diversas empresas para antecipação de recebíveis
+        com segurança, previsibilidade e simplicidade.
+      </p>
+
+      <p>
+        Aqui, você encontra conteúdos pensados para apoiar a gestão de caixa da sua empresa — de forma simples,
+        prática e sem pressão.
+      </p>
+
+      <a href="https://www.monkey.tech/" target="_blank" rel="noopener">Conheça a plataforma</a>
+    </div>
+
+  </div>
+</body>
+</html>
